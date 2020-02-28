@@ -1,0 +1,34 @@
+{% extends 'sections/section.twig' %}
+
+{% set section_classes = ['news', 'fit-height'] %}
+
+{% block content %}
+
+        <div class="bouw-posts-wrapper columns is-multiline">
+            {# {% for item in bouw_posts %}
+                {% set thumbnail = TimberImage(item.get_field('thumbnail')) %}
+
+                <div class="column is-6">
+
+                    <div class="background-image" style="height: auto; background-image: url('{{ thumbnail }}')">
+                        <img class="placeholder" src="http://placehold.it/3x2">
+                    </div>
+
+                    <p class="excerpt" style="margin-top: 0.5em; margin-bottom: 0.25em">
+                        {{ item.title }}
+                    </p>
+                    <p class="date" style="margin-bottom: 0; font-family: SMMaxeville-Regular; text-transform: uppercase;">
+                        {{ item.date }}
+                    </p>
+
+                </div>
+            {% endfor %} #}
+        </div>
+
+        <div class="columns">
+            <div class="column is-offset-6">
+                <div class="button fetch-bouw-posts" style="margin-left: 0;">oudere berichten</div>
+            </div>
+        </div>
+
+{% endblock %}

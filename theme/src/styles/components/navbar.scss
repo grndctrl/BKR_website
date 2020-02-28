@@ -1,0 +1,232 @@
+body.scrolled-footer-open {
+    .navbar {
+        top: -80px !important;
+        transition-duration: 0;
+    }
+}
+
+
+.navbar {
+    @include transition(top, background);
+
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    z-index: 10000 !important;
+
+    &.is-pushed-up {
+        top: -60px;
+    }
+    .mobile-inschrijven {
+        font-size: 11px;
+        margin-left: auto;
+    }
+    &.is-active {
+        transition-duration: 0ms;
+
+        .mobile-inschrijven {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+    &>.container {
+        .navbar-end {
+            height: 100%;
+        }
+        .navbar-item {
+            height: 100%;
+            .field {
+                height: 100%;
+                align-items: center;
+            }
+        }
+        .navbar-brand {
+            position: relative;
+            margin-right: 12%;
+            height: 60px;
+            align-items: center;
+            margin-left: -0.75rem;
+            z-index: +1;
+            .logo {
+                height: 19px;
+                width: auto;
+            }
+        }
+        .navbar-menu {
+            margin-right: 12%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            max-height: 100vh;
+            box-shadow: none;
+            .field {
+                flex-direction: column;
+                height: 100%;
+                justify-content: center;
+                .button-inschrijven {
+                    border: 0;
+                }
+            }
+            &.is-active {
+                background: $red;
+                .control {
+                    text-align: center;
+                    margin: 20px;
+                    a {
+                        font-size: 30px;
+                    }
+                }
+            }
+        }
+        a:not(.button) {
+            border-bottom: 0;
+            text-transform: uppercase;
+            &:hover,
+            &:focus,
+            &:active {
+                color: $black;
+            }
+        }
+        .navbar-burger {
+            position: absolute;
+            right: -12%;
+            width: 60px;
+            height: 60px;
+            margin-left: 0;
+            span {
+                width: 24px;
+                left: auto;
+                right: 0;
+                &:nth-child(1) {
+                    transform-origin: 0;
+                    top: calc(50% - 12px);
+                }
+                &:nth-child(2) {
+                    top: calc(50% - 1px);
+                }
+                &:nth-child(3) {
+                    transform-origin: 0;
+                    top: calc(50% + 11px);
+                }
+            }
+            &.is-active {
+                span {
+                    &:nth-child(1) {
+                        transform: translateY(3px) translateX(3px) rotate(45deg);
+                    }
+                    &:nth-child(2) {
+                        opacity: 0;
+                    }
+                    &:nth-child(3) {
+                        transform: translateY(-3px) translateX(3px) rotate(-45deg);
+                    }
+                }
+            }
+            &:hover {
+                background: transparent;
+                color: $black;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .navbar {
+        &.is-pushed-up {
+            top: -80px;
+        }
+        &>.container {
+            .navbar-brand {
+                height: 80px;
+                .logo {
+                    height: auto;
+                }
+            }
+            .navbar-menu,
+            .navbar-menu.is-active {
+                top: 0;
+                height: calc(100% + 80px);
+                .navbar-item {
+                    padding-right: 0;
+                }
+                .control {
+                    margin-right: 0;
+                    &:last-child {
+                        margin-left: 1.5em;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .navbar {
+        &.is-pushed-up {
+            top: -80px;
+        }
+        &>.container {
+            display: flex;
+            
+            .navbar-brand {
+                margin-right: 0;
+                height: 80px;
+                .logo {
+                    height: auto;
+                }
+            }
+            .navbar-menu {
+                //margin-right: auto;
+                display: flex;
+                flex-grow: 1;
+                flex-shrink: 0;
+            
+                height: 80px;
+                width: auto;
+                position: relative;
+                top: auto;
+                .field {
+                    flex-direction: row;
+                    height: auto;
+                    .control {
+                        margin-top: 0;
+                        margin-bottom: 0;
+                        & :not(.button) span {
+                            padding: 0 1.5em;
+                        }
+                        a {
+                            font-size: 0.9375rem;
+                        }
+
+                        .nav-inschrijven {
+                            color: $red;
+                            border-color: $red;
+
+                            &:hover {
+                                color: $text-invert;
+                            }
+                            &::before {
+                                background: $red;
+                            }
+                        }
+                    }
+                    .button-inschrijven {
+                        border: 1px;
+                    }
+                }
+                a:not(.button) {
+                    &:hover {
+                        color: $red;
+                    }
+                }
+                &.is-active {
+                    background: transparent;
+                }
+            }
+            .navbar-burger {
+                display: none;
+            }
+        }
+    }
+}

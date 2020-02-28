@@ -1,0 +1,74 @@
+<div class="footer-placeholder"></div>
+
+<footer id="footer" class="footer {{ background_color }}">
+    <div class="container is-fluid">
+        <div class="columns is-mobile is-multiline">
+            <div class="column is-12-mobile is-6-tablet is-3-desktop">
+                <div class="content">
+                    <div class="logo">
+                        <img src="{{ logo_url }}">
+                    </div>
+                    
+                    <p class="">
+                        <br>
+                        {# <a href="">Facebook</a>
+                        <br>
+                        <a href="">Instagram</a> #}
+                        <a class="" href="{{ site.link }}/disclaimer">Disclaimer</a>
+                    </p>
+                </div>
+            </div>
+            <div class="column is-12-mobile is-6-tablet is-3-desktop">
+                <div class="content">
+                    <p>
+                        Voor vragen en informatie<br>
+                        over de woningen kunt u<br>
+                        contact opnemen met<br>
+                        ERA vb&amp;t Makelaars
+                    </p>
+                    <p>
+                        <a href="mailto:{{ contact.mail }}">{{ contact.mail }}</a>
+                        <br>
+                        <a href="tel:{{ contact.phone|replace(' ', '') }}">{{ contact.phone }}</a>
+                    </p>
+                </div>
+            </div>
+            <div class="column is-12-mobile is-6-tablet is-3-desktop">
+                <div class="content">
+                    <p>
+                        Voor vragen en informatie<br>
+                        over de horeca- en kantoorruimte<br>
+                        kunt u contact opnemen met<br>
+                        Verschuuren &amp; Schreppers Bedrijfsmakelaars
+                    </p>
+
+                    <p>
+                        <a href="mailto:info@verschuuren-schreppers.nl">info@verschuuren-schreppers.nl</a><br>
+                        <a href="tel:0402111112">040 211 11 12</a>
+                    </p>
+
+                </div>
+            </div>
+            <div class="column is-12-mobile is-6-tablet is-3-desktop">
+                <div class="content">
+                    <p>
+                        <a target="_blank" href="https://www.facebook.com/BunkerToren/">Facebook</a>
+                        <br>
+                        <a target="_blank" href="https://www.instagram.com/bunkertoren/">Instagram</a>
+                    </p>
+                    <p>
+                        <a href="{{ 'primary'|get_sign_in_url }}" target="_blank" class="button">inschrijven</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        {# <div class="columns">
+            <div class="column">
+                <p>
+                    <br><br>
+                    <a class="" href="{{ site.link }}/disclaimer">Disclaimer</a>
+                </p>
+            </div>
+        </div> #}
+    </div>
+</footer>

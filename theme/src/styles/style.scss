@@ -1,0 +1,82 @@
+@import 'bulma.scss';
+@import 'colors.scss';
+@import 'fonts.scss';
+@import 'mixins.scss';
+@import 'shared.scss';
+@import './components/navbar.scss';
+@import './components/header.scss';
+@import './components/footer.scss';
+@import './components/buttons.scss';
+@import './components/images.scss';
+@import './components/appear.scss';
+@import './components/fullscreen-360.scss';
+@import './components/loader.scss';
+@import './components/slider.scss';
+@import './sections/section.scss';
+@import './sections/splash.scss';
+@import './sections/text-image.scss';
+@import './sections/fullwidth-portrait.scss';
+@import './sections/usp-icons.scss';
+@import './sections/polygon-box.scss';
+@import './sections/news.scss';
+@import './sections/text.scss';
+@import './sections/partners.scss';
+@import './sections/appartments-list.scss';
+@import './sections/text-360.scss';
+@import './sections/appartment-plan.scss';
+@import './sections/appartment-details.scss';
+@import './sections/map.scss';
+
+.app-downloads .button-group:first-of-type {
+    padding-top: 2rem;
+}
+
+.app-downloads .button-group .button {
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .app-downloads .button-group {
+        display: block;
+    }
+    .app-downloads .button-group .level-item {
+        width: 100%;
+        display: block;
+    }
+    .app-downloads .button-group .button {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (min-width: 769px) {
+    .app-downloads .button-group {
+        display: block;
+    }
+    .app-downloads .button-group .level-item {
+        width: 100%;
+        display: block;
+    }
+    .app-downloads .button-group .button {
+        width: 70%;
+        margin-left: 15%;
+        margin-right: 15%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .app-downloads .button-group {
+        display: flex;
+    }
+    .app-downloads .button-group .level-item {
+        width: auto;
+        display: flex;
+    }
+    .app-downloads .button-group .button {
+        width: auto;
+        margin: 0;
+    }
+}

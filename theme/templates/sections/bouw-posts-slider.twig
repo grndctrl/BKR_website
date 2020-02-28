@@ -1,0 +1,40 @@
+{% extends 'sections/section.twig' %}
+
+{% set section_classes = ['news', 'fit-height'] %}
+
+{% block content %}
+
+  <div class="bouw-posts-siema-wrapper">
+    <div class="columns">
+        <div class="column is-7">
+            <h1 style="margin-bottom: 0">VOLG DE BOUW</h1>
+        </div>
+        <div class="column is-5 align-right" style="display: flex; align-items: flex-end; justify-content: flex-end">
+            <div class="button prev disabled">NIEUWER</div>
+            <div class="button next">OUDER</div>
+        </div>
+    </div>
+
+    <div class="bouw-posts-siema-slider" style="margin-left: -12px; margin-right: -12px;" data-length="{{ bouw_posts|length }}">
+      {% for item in bouw_posts %}
+        {% set thumbnail = TimberImage(item.get_field('thumbnail')).src('medium_large') %}
+
+        <div class="" style="padding: 0 12px">
+        <a href="{{ item.link }}">
+          <div class="background-image" style="height: auto; background-image: url('{{ thumbnail }}')">
+            <img class="placeholder" src="http://placehold.it/3x2">
+          </div>
+          <p class="excerpt" style="margin-top: 0.5em; margin-bottom: 0.25em">
+            {{ item.title }}
+          </p>
+          <p class="date" style="margin-bottom: 0; font-family: SMMaxeville-Regular; text-transform: uppercase;">
+            {{ item.date }}
+          </p>
+        </a>
+        </div>
+
+      {% endfor %}
+    </div>
+  </div>
+
+{% endblock %}

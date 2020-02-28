@@ -1,0 +1,47 @@
+{% extends 'base.twig' %}
+
+{% set body_classes = ['page-about'] %}
+{% set navbar_image = theme.link ~ '/assets/images/logo.svg' %}
+{% set navbar_link = site.link %}
+{% set footer_background_color = post.get_field('footer_background_color') %}
+
+{% block body %}
+    {% set livestream = post.get_field('bouw_livestream') %}
+
+    <div id="livestream-wrapper" style="display: none;">
+      <div class="livestream-sizer">
+        <button class="button" id="livestream-close">close</button>
+        <div class="livestream-relative">
+          <div class="livestream-absolute">
+            <iframe src="https://bunker.timeboxview.com/latestimage" frameborder="0" width="100%" height="100%" style="width:  100%; height: 100%;"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% include 'components/header.twig' with {
+        'header': post.title|trim,
+        'background_color': 'light-red',
+        'livestream_url': livestream.button_url
+    } %}
+
+    {% include 'sections/livestream.twig' with {
+        'title': livestream.title,
+        'text': livestream.text,
+        'date': livestream.date,
+        'image': livestream.image
+    } %}
+
+    <section class="section fit-height" style="padding-top: 0; padding-bottom: 0;">
+        <div class="container is-fluid">
+            <div style="border-top: 1px solid #000; width: 100%"></div>
+        </div>
+    </section>
+
+    {% include 'sections/bouw-posts.twig' with {
+        'posts': bouw_posts
+    } %}
+    <script src="{{ site.theme.link }}/pageBouw.bundle.js?v=0.1"></script>
+
+{% endblock %}
+

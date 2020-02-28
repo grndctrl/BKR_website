@@ -1,0 +1,11 @@
+{% extends 'base.twig' %}
+
+{% set body_classes = ['page-about', 'gold'] %}
+{% set navbar_image = theme.link ~ '/assets/images/logo.svg' %}
+{% set navbar_link = site.link %}
+
+{% block body %}
+
+   {% include "sections/contact.twig" %}
+
+{% endblock %}

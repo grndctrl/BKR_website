@@ -1,0 +1,18 @@
+{% extends 'base.twig' %}
+
+{% set body_classes = ['page-about'] %}
+{% set navbar_image = theme.link ~ '/assets/images/logo.svg' %}
+{% set navbar_link = site.link %}
+{% set footer_background_color = post.get_field('footer_background_color') %}
+
+{% block body %}
+
+    {% include 'sections/bouw-item.twig' with {
+        'title': post.title,
+        'date': post.get_field('bouw_date'),
+        'text': post.get_field('text'),
+        'slides': post.get_field('slider')
+    } %}
+
+{% endblock %}
+

@@ -1,0 +1,17 @@
+<header class="header" data-background-color="{{ background_color }}">
+    <div class="container is-fluid">
+        <h1>{{ header }}</h1>
+
+
+        {% if livestream_url %}
+            <style scoped>
+                .button-livestream {
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                }
+            </style>
+            <a href="{{livestream_url }}" target="_blank" id="livestream-open" class="button is-red button-livestream">bekijk de livestream</a>
+        {% endif %}
+    </div>
+</header>

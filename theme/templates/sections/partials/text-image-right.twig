@@ -1,0 +1,120 @@
+{% if header %}
+
+    <div class="columns header">
+        <div class="column is-7-tablet is-8-desktop">
+            <h2 data-appear="" class="no-limit">{{ header }}</h2>
+        </div>
+    </div>
+
+{% endif %}
+
+<div class="columns body{% if header %} has-header{% endif %}{% if slides | length > 1 %} slider-wrapper{% endif %}">
+
+    <div class="column slider-column is-7-tablet is-8-desktop">
+        <div class="{% if slides|length > 1 %}slider {% endif %}{{ clipping }}">
+
+            {% for slide in slides %}
+                <div class="background-image" style="background-image: url('{{ TimberImage(slide.image).src('bunker-large') }}')">
+                    <img src="http://placehold.it/4x3" alt="" class="placeholder">
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+    <div class="column is-hidden-tablet">
+        <div class="slide-subtitles">
+            {% for slide in slides %}
+            <h3 class="slide-subtitle slide-subtitle-{{ title|title_to_class }}-{{ loop.index0 }}-mobile{% if loop.first %} is-active{% endif %}">
+                {{ slide.subtitle }}
+            </h3>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="column is-hidden-tablet">
+        {% if slides | length > 1 %}
+            <div class="slider-navbar is-mobile">
+                {% if slides | length > 4 %}
+                    {% for slide in slides %}
+                        <div data-slider-id="{{ title|title_to_class }}" data-slider-index="{{ loop.index0 }}" class="slider-nav-item{% if loop.first %} is-active{% endif %}" style="width: calc((100% - 4.5rem) / {{ slides | length}})">
+                            <span>0{{ loop.index }}</span>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    {% for slide in slides %}
+                        <div data-slider-id="{{ title|title_to_class }}" data-slider-index="{{ loop.index0 }}" class="slider-nav-item{% if loop.first %} is-active{% endif %}">
+                            <span>0{{ loop.index }}</span>
+                        </div>
+                    {% endfor %}
+
+                    {% if slides | length < 4 %}
+                        {% for spacer in 0..((4 - slides|length) - 1) %}
+                            <div class="slider-nav-spacer"></div>
+                        {% endfor %}
+                    {% endif %}
+                {% endif %}
+
+            </div>
+        {% endif %}
+
+        <div data-appear="">
+            <h1>{{ title }}</h1>
+        </div>
+        <div data-appear="" data-appear-delay="200ms">
+            <p>{{ text }}</p>
+        </div>
+        {% if button | length > 0 %}
+            <div data-appear="" data-appear-delay="400ms">
+                <a href="{{ button[0].button_link }}" class="button">{{ button[0].button_caption }}</a>
+            </div>
+        {% endif %}
+
+    </div>
+
+    <div class="column text-column is-hidden-mobile is-5-tablet is-4-desktop">
+        <div data-appear="">
+            <h1>{{ title }}</h1>
+        </div>
+
+        <div data-appear="" data-appear-delay="200ms">
+            <p>{{ text }}</p>
+        </div>
+
+        {% if slides | length > 1 %}
+            <div class="slider-navbar">
+                {% if slides | length > 4 %}
+                    {% for slide in slides %}
+                        <div data-slider-id="{{ title|title_to_class }}" data-slider-index="{{ loop.index0 }}" class="slider-nav-item{% if loop.first %} is-active{% endif %}" style="width: calc((100% - 4.5rem) / {{ slides | length}})">
+                            <span>0{{ loop.index }}</span>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    {% for slide in slides %}
+                        <div data-slider-id="{{ title|title_to_class }}" data-slider-index="{{ loop.index0 }}" class="slider-nav-item{% if loop.first %} is-active{% endif %}">
+                            <span>0{{ loop.index }}</span>
+                        </div>
+                    {% endfor %}
+
+                    {% if slides | length < 4 %}
+                        {% for spacer in 0..((4 - slides|length) - 1) %}
+                            <div class="slider-nav-spacer"></div>
+                        {% endfor %}
+                    {% endif %}
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="columns">
+    <div class="column is-hidden-mobile is-5-tablet is-4-desktop">
+        <div class="slide-subtitles">
+            {% for slide in slides %}
+            <h3 class="slide-subtitle slide-subtitle-{{ title|title_to_class }}-{{ loop.index0 }}{% if loop.first %} is-active{% endif %}">
+                {{ slide.subtitle }}
+            </h3>
+            {% endfor %}
+        </div>
+    </div>
+</div>

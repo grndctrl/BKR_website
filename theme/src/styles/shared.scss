@@ -1,0 +1,149 @@
+body {
+    color: $black;
+}
+
+a:not(.button) {
+    transition: color 400ms ease, border 400ms ease;
+    color: $black;
+    border-bottom: 1px solid $black;
+    &:hover,
+    &:focus,
+    &:active {
+        color: $black;
+        border-bottom: 1px solid transparent;
+    }
+}
+
+ul, .content ul {
+    list-style: none;
+    margin-top: 0;
+}
+
+.content {
+    padding: 2rem;
+}
+
+.columns.header {
+    padding: 1.5rem 0;
+}
+
+.has-extra-gutter {
+    &-left {
+        margin-left: 1rem;
+    }
+    &-right {
+        margin-right: 1rem;
+    }
+}
+
+.align-clipping-left {
+    margin-left: 12%;
+}
+
+p, h1, h2, h3,
+.content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
+    font-weight: 400;
+    color: $black;
+}
+
+p {
+    margin-bottom: 2rem;
+}
+p, a {
+    font-family: 'Chap-Regular';
+    font-size: 15px;
+    color: $black;
+    letter-spacing: 0;
+    line-height: 1.38em;
+}
+
+.content h1,
+h1 {
+    font-family: 'SMMaxeville-Regular';
+    font-size: 40px;
+    letter-spacing: -0.01em;
+    line-height: 0.84em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+.content h2,
+h2 {
+    font-family: 'Chap-Regular';
+    font-size: 32px;
+    letter-spacing: -0.0125em;
+    line-height: 0.9375em;
+    margin-bottom: 2rem;
+    max-width: 90%;
+    &::before {
+        content: '\2014 ';
+    }
+
+    &.no-limit {
+        max-width: 100%;
+    }
+}
+
+.slider-nav-item {
+    cursor: pointer;
+}
+
+.content h3,
+h3 {
+    font-size: 18px;
+}
+
+.constructed {
+    font-family: 'SMMaxeville-Constructed';
+}
+
+@media (max-width: 640px) {
+    .content h2,
+    h2 {
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 769px) {
+    .avoid-navbar {
+        padding-top: 80px;
+    }
+
+    p, a {
+        font-size: 18px;
+    }
+    h1 {
+        font-size: 45px;
+        margin-bottom: 2rem;
+    }
+    .page-front h1 {
+            font-size: 58px;
+    }
+    h2 {
+        font-size: 50px;
+    }
+
+    h3 {
+        font-size: 25px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .page-front h1 {
+            font-size: 64px;
+    }
+}
+
+@media (min-width: 1216px) {
+    .page-front h1 {
+            font-size: 80px;
+    }
+}
+
+@media (min-width: 1928px) {
+    .container.is-fluid {
+        max-width: 1800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

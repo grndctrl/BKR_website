@@ -1,0 +1,25 @@
+{% extends 'sections/section.twig' %}
+
+{% set section_classes = ['contact'] %}
+{% set background_color = 'gold' %}
+
+{% block content %}
+
+<div class="columns body" style="margin-top: 80px">
+    <div class="column text-column is-4 is-5-desktop">
+    <h1>contact</h1>
+    </div>
+    <div class="column text-column is-8 is-7-desktop">
+        <style scoped>
+            div.wpcf7-response-output {
+                border-color: transparent !important;
+                color: #000 !important;
+                margin-left: 0;
+                margin-right: 0;
+            }
+        </style>
+        {{ post.content }}
+    </div>
+</div>
+
+{% endblock %}

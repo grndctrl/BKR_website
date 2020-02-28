@@ -1,0 +1,66 @@
+.section.splash {
+    background: $ebb;
+    padding-bottom: 0;
+    padding-top: 0;
+    .splash-body {
+        height: 100vh;
+        position: relative;
+        .content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            margin-bottom: 0;
+            .aankondiging {
+                max-width: 540px;
+                font-family: 'Chap-Regular';
+                font-size: 25px;
+                color: $text-invert;
+                letter-spacing: -0.0125em;
+                line-height: 0.9375em;
+                margin-bottom: 1em;
+            }
+        }
+        .scroll-down  {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: $text-invert;
+            span {
+                cursor: pointer;
+                text-transform: uppercase;
+            }
+            .vertical-line {
+                height: 80px;
+                border-left: 1px solid $text-invert;
+                margin-left: 50%;
+            }
+        }
+    }
+}
+
+@media (min-width: 769px) {
+    .section.splash {
+        .splash-body {
+            .content {
+                .aankondiging {
+                    font-size: 32px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .section.splash {
+        .splash-body {
+            .content {
+                .aankondiging {
+                    font-size: 40px;
+                }
+            }
+        }
+    }
+}

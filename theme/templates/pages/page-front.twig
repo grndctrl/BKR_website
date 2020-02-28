@@ -1,0 +1,103 @@
+{% extends 'base.twig' %}
+
+{% set body_classes = ['page-front', 'has-floating-message', 'has-360-views'] %}
+{% set navbar_image = theme.link ~ '/assets/images/logo.svg' %}
+{% set navbar_link = site.link %}
+
+{% block body %}
+
+    {% include 'components/fullscreen-360.twig' %}
+
+    {% include 'sections/splash.twig' with {
+        'background_color': 'light-red',
+        'image': TimberImage(post.get_field('front_splash_image')).src,
+        'text': post.get_field('front_splash_text'),
+        'agenda': post.get_field('front_splash_agenda'),
+        'scroll_caption': post.get_field('front_splash_scroll'),
+        'button_360': post.get_field('front_button_360_group'),
+        'button_caption':post.get_field('front_splash_button_caption'),
+        'button_url':post.get_field('front_splash_button_url')
+    } %}
+
+    {% for module in post.get_field('block_modules') %}
+
+        {% if module.acf_fc_layout == 'text_image' %}
+
+            {% include 'sections/text-image.twig' with {
+                'background_color': module.background_color,
+                'is_fullheight': module.is_fullheight,
+                'orientation': module.orientation,
+                'header': module.header,
+                'title': module.title,
+                'text': module.text,
+                'clipping': module.clipping,
+                'slides': module.slides,
+                'button': module.button_group
+            } %}
+
+        {% elseif module.acf_fc_layout == 'fullwidth_portrait' %}
+            
+            {% include 'sections/fullwidth-portrait.twig' with { 
+                'fullwidth_portrait_image': TimberImage(module.image).src('bunker-fullwidth'),
+                'floating_message': module.floating_message
+            } %}
+
+        {% elseif module.acf_fc_layout == 'left_360' %}
+
+            {% include 'sections/text-360-front.twig' with {
+                'background_color': module.background_color,
+                'orientation': module.orientation,
+                'clipping': module.clipping,
+                'header': module.left_360_header,
+                'title': module.left_360_title,
+                'subtitle': module.left_360_appartment,
+                'text': module.left_360_text,
+                'image': module.left_360_image,
+                'kuula': module.left_360_kuula ,
+                'button': module.button_group  
+            } %}
+
+        {% endif %}
+
+    {% endfor %}
+
+    {% include 'sections/usp-icons.twig' with {
+        'background_color': post.get_field('usp_background_color'),
+        'icons': post.get_field('usp_icons')
+    } %}
+
+    {% include 'sections/polygon-box.twig' with { 
+        'page_variation': 'front',
+        'background_color': 'red',
+        'text': post.get_field('polygon_front_text'),
+        'button': {
+            'url': post.get_field('polygon_front_button_link'),
+            'caption': post.get_field('polygon_front_button_caption')
+        },
+        'contact': {
+            'mail': post.get_field('polygon_front_contact_mail'),
+            'phone': post.get_field('polygon_front_contact_phone')
+        }
+    } %}
+
+    {% include 'sections/bouw-posts-slider.twig' with {
+        'bouw_posts': bouw_posts
+    } %}
+
+    <script src="{{ site.theme.link }}/bouwPostSlider.bundle.js?v=0.1"></script>
+
+    {# {% include 'sections/news.twig' with {
+        'news' : [
+            {
+                'background_image': 'http://placehold.it/1600x900',
+                'date': '20 juni 2018',
+                'excerpt': 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accus…'
+            }, {
+                'background_image': 'http://placehold.it/1200x1000',
+                'date': '28 mei 2018',
+                'excerpt': 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit…'
+            }
+        ]
+    } %} #}
+
+{% endblock %}

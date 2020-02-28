@@ -1,0 +1,28 @@
+import './styles/style.scss'
+
+import './js/shared.js'
+
+// import './images/logo.svg'
+// import './images/usp-arrow.svg'
+// import './images/usp-icon-people.svg'
+// import './images/usp-icon-coffee.svg'
+// import './images/usp-icon-circle.svg'
+// import './images/usp-icon-architecture.svg'
+// import './images/border-polygon.svg'
+// import './images/button-fullscreen.svg'
+// import './images/drawing.png'
+
+// import './images/Being.png'
+// import './images/Delva.png'
+// import './images/Powerhouse.png'
+// import './images/REDC.png'
+// import './images/TUe.png'
+// import './images/vbt.png'
+
+// import './images/back-arrow.svg'
+// import './images/plan.png'
+// import './images/aanzichten.png'
+// import './images/windrichting.svg'
+// import './images/open360.svg'
+// import './images/logo-b.svg'
+// import './images/kaart.png'

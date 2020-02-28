@@ -1,0 +1,17 @@
+{% extends 'sections/section.twig' %}
+
+{% set section_classes = ['text-360', 'fit-height'] %}
+
+{% block content %}
+
+    {% if orientation == 'text-left' %}
+        {% include 'sections/partials/text-360-front-left.twig' with {
+            'clipping': 'is-clipped-left'
+        } %}
+    {% else %}
+        {% include 'sections/partials/text-360-front-right.twig' with {
+            'clipping': 'is-clipped-right'
+        } %}
+    {% endif %}
+
+{% endblock %}
