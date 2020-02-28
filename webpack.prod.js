@@ -1,7 +1,7 @@
 const merge = require('webpack-merge')
 const path = require('path')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-const TerserPlugin = require('uglifyjs-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const common = require('./webpack.bunker.js')
 const config = require(path.resolve(__dirname, 'config/theme.json'))
@@ -19,7 +19,7 @@ module.exports = merge(common, {
   optimization: {
     minimizer: [
       new TerserPlugin({
-        uglifyOptions: {
+        terserOptions: {
           output: {
             comments: false,
           },
