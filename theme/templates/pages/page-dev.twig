@@ -1,0 +1,69 @@
+{% extends 'base.twig' %}
+
+{% set body_classes = ['page-dev'] %}
+{% set navbar_image = theme.link ~ '/assets/images/logo.svg' %}
+{% set navbar_link = site.link %}
+{% set footer_background_color = post.get_field('footer_background_color') %}
+
+{% block body %}
+
+    {% for module in post.get_field('block_modules') %}
+
+        {% if module.acf_fc_layout == 'text_image' %}
+
+            {% include 'sections/text-image.twig' with {
+                'background_color': module.background_color,
+                'is_fullheight': module.is_fullheight,
+                'orientation': module.orientation,
+                'header': module.header,
+                'title': module.title,
+                'text': module.text,
+                'clipping': module.clipping,
+                'slides': module.slides,
+                'button': module.button_group
+            } %}
+
+        {% elseif module.acf_fc_layout == 'big_text' %}
+            
+            {% include 'sections/big-text.twig' with { 
+                'background_color': module.background_color,
+                'text': module.text
+            } %}
+        
+        {% elseif module.acf_fc_layout == 'appartment_text' %}
+            
+            {% include 'sections/appartment-text.twig' with {
+                'background_color': module.background_color,
+                'name': module.name,
+                'area': module.area,
+                'button': module.button_group
+            } %}
+        
+        {% elseif module.acf_fc_layout == 'fullwidth_portrait' %}
+            
+            {% include 'sections/fullwidth-portrait.twig' with { 
+                'fullwidth_portrait_image': TimberImage(module.image).src('bunker-fullwidth'),
+                'floating_message': module.floating_message
+            } %}
+
+        {% elseif module.acf_fc_layout == 'left_360' %}
+
+            {% include 'sections/text-360.twig' with {
+                'background_color': module.background_color,
+                'orientation': module.orientation,
+                'clipping': module.clipping,
+                'header': module.left_360_header,
+                'title': module.left_360_title,
+                'subtitle': module.left_360_appartment,
+                'text': module.left_360_text,
+                'image': module.left_360_image,
+                'kuula': module.left_360_kuula ,
+                'button': module.button_group  
+            } %}
+
+        {% endif %}
+
+    {% endfor %}
+
+{% endblock %}
+

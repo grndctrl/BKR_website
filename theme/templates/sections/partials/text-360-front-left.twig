@@ -1,15 +1,16 @@
 {% if header %}
 
-    <div class="columns header" style="padding-top: 1.5rem;">
-        <div class="column is-7-tablet is-offset-5-tablet is-8-desktop is-offset-4-desktop">
-            <h2 data-appear="" class="align-clipping-left no-limit">{{ header }}</h2>
+    <div class="columns header">
+        <div class="column is-6-tablet is-offset-6-tablet">
+            <h2 data-appear="" class="no-limit">{{ header }}</h2>
         </div>
     </div>
 
 {% endif %}
 
 <div class="columns body is-multiline">
-    <div class="column text-column is-hidden-mobile is-5-tablet is-4-desktop">
+
+    <div class="column text-column is-hidden-mobile is-6-tablet">
         <div data-appear="">
             <h1>{{ title }}</h1>
         </div>
@@ -23,23 +24,38 @@
             </div>
         {% endif %}
     </div>
-    <div class="column clipped-360-column is-7-tablet is-8-desktop">
+
+    <div class="column clipped-360-column is-6-tablet">
         <div class="clipped-360 {{ clipping }}">
             <div class="background-image" style="background-image: url('{{ TimberImage(image).src('bunker-large') }}')">
                 <img src="http://placehold.it/4x3" alt="" class="placeholder">
             </div>
 
-            <div class="button-fullscreen  is-hidden-mobile" data-kuula="{{ kuula|share }}" style="margin-left: 6%">
+            <div class="button-fullscreen  is-hidden-mobile" data-kuula="{{ kuula|share }}">
                 <img src="{{ theme.link }}/assets/images/open360.svg" alt="">
             </div>
         </div>
+
+        <div class="slider-navbar" style="justify-content: flex-start">
+            
+            <div class="slide-subtitles is-hidden-mobile" style="justify-content: flex-start;">
+                <h3 class="slide-subtitle is-active">
+                    {{ subtitle }}
+                </h3>
+            </div>
+
+        </div>
     </div>
-    <div class="column is-7-tablet is-offset-5-tablet is-8-desktop is-offset-4-desktop">
-        <h3>
-            {{ subtitle }}
-        </h3>
+
+    <div class="column is-hidden-tablet" style="padding-left: 2.25rem; padding-right: 2.25rem">
+        <div class="slide-subtitles">
+            <h3 class="slide-subtitle is-active">
+                {{ subtitle }}
+            </h3>
+        </div>
     </div>
-    <div class="column is-hidden-tablet">
+
+    <div class="column is-hidden-tablet" style="padding-left: 2.25rem; padding-right: 2.25rem">
         <div data-appear="">
             <h1>{{ title }}</h1>
         </div>

@@ -9,7 +9,11 @@
 
     .text-column {
         position: relative;
-        display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 2.25rem;
+        padding-right: 2.25rem;
     }
     .is-hidden-tablet .slider-navbar {
         margin-top: 1rem;
@@ -19,45 +23,105 @@
         position: relative;
         width: 100%;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
+        z-index: +1;
+        padding-top: 1em;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+
         &.is-mobile {
             position: relative;
             margin-bottom: 4rem;
         }
+
+        &.is-double.top {
+            bottom: 3.25rem;
+        }
     }
     .slider-nav-spacer,
-    .slider-nav-item {
-        font-size: 20px;
-        width: calc((100% - 4.5rem) / 4);
-        margin: 0;
-        opacity: 0.3;
+            .slider-nav-item {
+                font-family: $family-display;
+                font-size: 15px;
+                //width: calc((100vw - 112px - 48px) / 12);
+                width: 2em;
+                margin-left: 1.75em;
+                opacity: 0.3;
+                //margin-right: 0.75rem;
+                // &:first-of-type {
+                //     margin-left: 0;
+                // }
+                padding-right: 1.25em;
+                padding-top: 0.25em;
+                padding-bottom: 0.25em;
+                position: relative;
+                &[data-slider-index="0"]{
+                    margin-left: 0;
+                }
+                &.is-active {
+                    opacity: 1;
+                }
+                &::after {
+                    content: '';
+                    border-right: 1px solid $red;
+                    transform: skew(-15deg);
+                    position: absolute;
+                    top: 0;
+                    right: 0.2em;
+                    width: 100%;
+                    height: 100%;
+                }
+                span {
+                    display: block;
+                    
 
-        &.is-active {
-            opacity: 1;
-        }
-        span {
-            display: block;
-            border-bottom: 1px solid black;
-        }
-    }
+                    //margin-right: 1.5rem;
+                }
+            }
 
     .appartment-name {
         position: relative;
     }
-    .subtitle-360 {
-        &-0-mobile,
-        &-1-mobile,
-        &-0,
-        &-1 {
-            position: absolute;
-            top: 0; left: 0;
-            opacity: 0;
-            transition: opacity 400ms ease;
+    // .subtitle-360 {
+    //     &-0-mobile,
+    //     &-1-mobile,
+    //     &-0,
+    //     &-1 {
+    //         position: absolute;
+    //         top: 0; left: 0;
+    //         opacity: 0;
+    //         transition: opacity 400ms ease;
 
-            &.is-active {
-                opacity: 1;
-            }
+    //         &.is-active {
+    //             opacity: 1;
+    //         }
+    //     }
+    // }
+    .subtitle-360 {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+
+    .slide-subtitles {
+        position: relative;
+        margin-bottom: 2rem;
+        width: 100%;
+        display: flex;
+    }
+    .slide-subtitle {
+        position: absolute;
+        font-size: 15px;
+        text-transform: uppercase;
+        padding-top: 0.25em;
+        padding-bottom: 0.25em;
+        top: 0;
+        opacity: 0;
+        transition: opacity 400ms ease;
+
+        &.is-active {
+            opacity: 1;
         }
+    
     }
 }
 
@@ -95,12 +159,32 @@
 
 @media (min-width: 769px) {
     .section.text-360 {
-        .text-column {
-            margin-bottom: 3rem;
+        .subtitle-360 {
+            padding-left: 0;
+            padding-right: 0;
         }
+        .text-column {
+            padding-left: 3rem;
+            padding-right: 3rem;
+        }
+
         .slider-navbar {
-            position: absolute;
-            bottom: -2.25rem;
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .section.text-360 {
+        .text-column {
+            padding-left: 6rem;
+            padding-right: 6rem;
+        }
+    
+        .slider-navbar {
+            // position: absolute;
+            // bottom: -2.25rem;
         }        
     }
 }

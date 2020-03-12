@@ -29,23 +29,23 @@
         max-width: calc(100vw - 112px);
 
         p {
-            max-width: 400px;
+            // max-width: 400px;
             margin-bottom: 2rem;
-            color: $text-invert;
+            // color: $text-invert;
         }
         h1 {
             font-size: 52px;
-            color: $text-invert;
+            // color: $text-invert;
         }
         h2 {
-            color: $text-invert;
+            // color: $text-invert;
             font-size: 25px;
         }
         h1,
         h2 {
             line-height: 1.5em;
             transition: line-height 400ms ease;
-            max-width: 80%;
+            // max-width: 80%;
         }
         &.is-active {
             opacity: 1;
@@ -86,10 +86,10 @@
         .floating-message {
             max-width: 75vw;
             h1 {
-                font-size: 80px;
+                font-size: 85px;
             }
             h2 {
-                font-size: 50px;
+                font-size: 48px;
             }
         }
     }
@@ -102,7 +102,7 @@
             max-width: 75vw;
             h1,
             h2 {
-                max-width: 600px;
+                // max-width: 600px;
             }
         }
     }

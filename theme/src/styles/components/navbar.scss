@@ -5,6 +5,13 @@ body.scrolled-footer-open {
     }
 }
 
+.red,
+.midnight {
+    &.navbar .mobile-inschrijven {
+        color: $text-invert;
+        border-color: $text-invert;
+    }
+}
 
 .navbar {
     @include transition(top, background);
@@ -33,10 +40,15 @@ body.scrolled-footer-open {
             height: 100%;
         }
         .navbar-item {
+            color: inherit;
             height: 100%;
             .field {
                 height: 100%;
                 align-items: center;
+            }
+            a:hover,
+            a {
+                color: inherit;
             }
         }
         .navbar-brand {
@@ -47,8 +59,7 @@ body.scrolled-footer-open {
             margin-left: -0.75rem;
             z-index: +1;
             .logo {
-                height: 19px;
-                width: auto;
+                width: 100px;
             }
         }
         .navbar-menu {
@@ -70,6 +81,7 @@ body.scrolled-footer-open {
             }
             &.is-active {
                 background: $red;
+                color: $white;
                 .control {
                     text-align: center;
                     margin: 20px;
@@ -85,7 +97,7 @@ body.scrolled-footer-open {
             &:hover,
             &:focus,
             &:active {
-                color: $black;
+                color: inherit;
             }
         }
         .navbar-burger {
@@ -111,6 +123,7 @@ body.scrolled-footer-open {
                 }
             }
             &.is-active {
+                color: $white;
                 span {
                     &:nth-child(1) {
                         transform: translateY(3px) translateX(3px) rotate(45deg);
@@ -122,10 +135,14 @@ body.scrolled-footer-open {
                         transform: translateY(-3px) translateX(3px) rotate(-45deg);
                     }
                 }
+                &:hover {
+                    background: transparent;
+                    color: $white;
+                }
             }
             &:hover {
                 background: transparent;
-                color: $black;
+                color: $red;
             }
         }
     }
@@ -138,7 +155,10 @@ body.scrolled-footer-open {
         }
         &>.container {
             .navbar-brand {
-                height: 80px;
+                .navbar-item {
+                    align-items: flex-end;
+                    padding-bottom: 25px;
+                }
                 .logo {
                     height: auto;
                 }
@@ -149,6 +169,7 @@ body.scrolled-footer-open {
                 height: calc(100% + 80px);
                 .navbar-item {
                     padding-right: 0;
+                    align-items: flex-end;
                 }
                 .control {
                     margin-right: 0;
@@ -171,18 +192,19 @@ body.scrolled-footer-open {
             
             .navbar-brand {
                 margin-right: 0;
-                height: 80px;
+                .navbar-item {
+                    padding-bottom: 14px;
+                }
                 .logo {
                     height: auto;
                 }
             }
             .navbar-menu {
-                //margin-right: auto;
+                margin-right: 0;
                 display: flex;
                 flex-grow: 1;
                 flex-shrink: 0;
-            
-                height: 80px;
+                height: 60px;
                 width: auto;
                 position: relative;
                 top: auto;
@@ -200,7 +222,8 @@ body.scrolled-footer-open {
                         }
 
                         .nav-inschrijven {
-                            color: $red;
+                            display: none;
+                            color: inherit;
                             border-color: $red;
 
                             &:hover {
@@ -217,8 +240,11 @@ body.scrolled-footer-open {
                 }
                 a:not(.button) {
                     &:hover {
-                        color: $red;
+                        color: inherit;
                     }
+                }
+                a.button {
+                    color: inherit;
                 }
                 &.is-active {
                     background: transparent;
@@ -226,6 +252,33 @@ body.scrolled-footer-open {
             }
             .navbar-burger {
                 display: none;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .navbar {
+        &>.container {
+            .navbar-brand {
+                height: 80px;
+                .navbar-item {
+                    padding-bottom: 21px;
+                }
+                .logo {
+                    width: 170px;
+                    height: auto;
+                }
+            }
+            .navbar-menu {
+                height: 80px;
+                .field {
+                    .control {
+                        .nav-inschrijven {
+                            display: block;
+                        }
+                    }
+                }
             }
         }
     }

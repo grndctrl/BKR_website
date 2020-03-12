@@ -28,14 +28,24 @@
 
 .is-clipped-left {
     height: 100%;
-    -webkit-clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%, 12% 56%);
-    clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%, 12% 56%);
+    // -webkit-clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%, 12% 56%);
+    // clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%, 12% 56%);
 }
 
 .is-clipped-right {
     height: 100%;
-    -webkit-clip-path: polygon(0px 0px, 88% 0px, 88% 56%, 100% 100%, 0px 100%);
-    clip-path: polygon(0px 0px, 88% 0px, 88% 56%, 100% 100%, 0px 100%);
+    // -webkit-clip-path: polygon(0px 0px, 88% 0px, 88% 56%, 100% 100%, 0px 100%);
+    // clip-path: polygon(0px 0px, 88% 0px, 88% 56%, 100% 100%, 0px 100%);
+}
+
+.fit-height {
+    .is-clipped-left {
+        height: auto;
+    }
+    
+    .is-clipped-right {
+        height: auto;
+    }
 }
 
 .image-placeholder {

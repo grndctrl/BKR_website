@@ -6,7 +6,8 @@
       <div class="column is-12-mobile is-12-tablet is-3-desktop">
         <div class="content">
           <div class="logo">
-            <img src="{{ logo_url }}">
+            {# <img src="{{ logo_url }}"> #}
+             {% include "components/logo.twig" %}
           </div>
           <p style="margin-bottom: 0">
             <a class="" href="{{ site.link }}/disclaimer">Disclaimer</a>

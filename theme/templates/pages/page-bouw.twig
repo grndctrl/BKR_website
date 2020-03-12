@@ -19,24 +19,30 @@
       </div>
     </div>
 
-    {% include 'components/header.twig' with {
-        'header': post.title|trim,
-        'background_color': 'light-red',
+    {# {% include 'components/header.twig' with {
+        'header': '',
+        'isVolgDeBouw': true,
+        'background_color': livestream.background_color,
+        'livestream_url': livestream.button_url
+    } %} #}
+
+    <div style="padding-top: 80px;"></div>
+
+    {% include 'sections/livestream.twig' with {
+      'isFullwidth' : true,
+        'title': livestream.title,
+        'background_color': livestream.background_color,
+        'text': livestream.text,
+        'date': livestream.date,
+        'image': livestream.image,
         'livestream_url': livestream.button_url
     } %}
 
-    {% include 'sections/livestream.twig' with {
-        'title': livestream.title,
-        'text': livestream.text,
-        'date': livestream.date,
-        'image': livestream.image
-    } %}
-
-    <section class="section fit-height" style="padding-top: 0; padding-bottom: 0;">
+    {# <section class="section fit-height" style="padding-top: 0; padding-bottom: 0;">
         <div class="container is-fluid">
             <div style="border-top: 1px solid #000; width: 100%"></div>
         </div>
-    </section>
+    </section> #}
 
     {% include 'sections/bouw-posts.twig' with {
         'posts': bouw_posts

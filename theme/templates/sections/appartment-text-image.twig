@@ -1,0 +1,19 @@
+{% extends 'sections/section-fw.twig' %}
+
+{% if is_fullheight %}
+    {% set section_classes = ['text-image'] %}
+{% else %}
+    {% set section_classes = ['text-image', 'fit-height'] %}
+{% endif %}
+
+{% set isFullwidth = true %}
+
+{% block content %}
+
+    {% if orientation == 'text-left' %}
+        {% include 'sections/partials/appartment-text-image-left.twig' %}
+    {% else %}
+        {% include 'sections/partials/appartment-text-image-right.twig' %}
+    {% endif %}
+
+{% endblock %}

@@ -8,13 +8,8 @@
     <head>
         <meta charset="{{ site.charset }}"/>
         <title>
-            {% if wp_title %}
-                {{ wp_title }}
-                -
                 {{ site.name }}
-            {% else %}
-                {{ site.name }}
-            {% endif %}
+    
         </title>
         <meta name="description" content="{{ site.description }}">
         <link rel="stylesheet" href="{{ site.theme.link }}/style.css" type="text/css" media="screen"/>
@@ -65,10 +60,10 @@
 
         <!-- tracking code datlab.nl -->
         <script type="text/javascript">
-        (function(d){
-        var g=d.createElement('script'),s=d.scripts[0];
-        g.src='//w1996.datlableadtracker.nl/analytics.js';
-        s.parentNode.insertBefore(g,s)}(document))
+        // (function(d){
+        // var g=d.createElement('script'),s=d.scripts[0];
+        // g.src='//w1996.datlableadtracker.nl/analytics.js';
+        // s.parentNode.insertBefore(g,s)}(document))
         </script>
         <!-- end tracking code datlab.nl -->
     </body>

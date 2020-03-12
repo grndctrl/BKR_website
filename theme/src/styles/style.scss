@@ -22,6 +22,7 @@
 @import './sections/text.scss';
 @import './sections/partners.scss';
 @import './sections/appartments-list.scss';
+@import './sections/appartment-text.scss';
 @import './sections/text-360.scss';
 @import './sections/appartment-plan.scss';
 @import './sections/appartment-details.scss';
@@ -32,7 +33,11 @@
 }
 
 .app-downloads .button-group .button {
-    font-size: 16px;
+    font-size: 15px;
+}
+
+.h-full {
+    height: 100%;
 }
 
 @media (max-width: 768px) {

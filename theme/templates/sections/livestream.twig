@@ -1,4 +1,4 @@
-{% extends 'sections/section.twig' %}
+{% extends 'sections/section-fw.twig' %}
 
 {% if is_fullheight %}
     {% set section_classes = ['text-image'] %}
@@ -11,7 +11,7 @@
     {% if header %}
 
     <div class="columns header">
-        <div class="column is-7-tablet is-offset-5-tablet is-8-desktop is-offset-4-desktop">
+        <div class="column is-6-tablet is-offset-6-tablet">
             <h2 data-appear="" class="align-clipping-left no-limit">{{ header }}</h2>
         </div>
     </div>
@@ -20,27 +20,45 @@
 
 <div class="columns body{% if header %} has-header{% endif %}">
 
-    <div class="column text-column is-hidden-mobile is-5-tablet is-4-desktop">
-        <div data-appear="">
-            <h1>{{ title }}</h1>
-        </div>
-        <div data-appear="" data-appear-delay="200ms">
-            <p style="margin-bottom: 1em; text-transform: uppercase; color: rgb(231, 65, 58); font-family: SMMaxeville-Regular">{{ date }}</p>
-        </div>
-        <div data-appear="" data-appear-delay="400ms">
-            <p>{{ text }}</p>
-        </div>
-
-    </div>
-
-    <div class="column slider-column is-7-tablet is-8-desktop">
+    <div class="column slider-column is-6-tablet">
         <div class="is-clipped-left">
 
                 <div class="background-image" style="background-image: url('{{ TimberImage(image).src('bunker-large') }}')">
                     <img src="http://placehold.it/4x3" alt="" class="placeholder">
                 </div>
+        </div>
+    </div>
 
+    <div class="column text-column is-hidden-mobile is-6-tablet">
+        <div data-appear="">
+            <h1>{{ title }}</h1>
+        </div>
+        <div data-appear="" data-appear-delay="200ms">
+            <p style="margin-bottom: 1em; text-transform: uppercase;">{{ date }}</p>
+        </div>
+        <div data-appear="" data-appear-delay="400ms">
+            <p>{{ text }}</p>
 
+            {% if livestream_url %}
+                <a href="{{livestream_url }}" target="_blank" id="livestream-open" class="button is-red button-livestream">bekijk de livestream</a>
+            {% endif %}
+        </div>
+
+    </div>
+
+    <div class="column is-hidden-tablet" style="padding-left: 2.25rem; padding-right: 2.25rem">
+        <div data-appear="">
+            <h1>{{ title }}</h1>
+        </div>
+        <div data-appear="" data-appear-delay="200ms">
+            <p style="margin-bottom: 1em; text-transform: uppercase;">{{ date }}</p>
+        </div>
+        <div data-appear="" data-appear-delay="400ms">
+            <p>{{ text }}</p>
+
+            {% if livestream_url %}
+                <a href="{{livestream_url }}" target="_blank" id="livestream-open" class="button is-red button-livestream">bekijk de livestream</a>
+            {% endif %}
         </div>
     </div>
 

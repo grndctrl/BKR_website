@@ -7,10 +7,11 @@
 
 {% block body %}
 
-    {% include 'components/header.twig' with {
-        'header': post.title|trim,
+    {# {% include 'components/header.twig' with {
+        'header': 'Over Bunkertoren',
         'background_color': 'light-gold'
-    } %}
+    } %} #}
+    <div style="padding-top: 80px;"></div>
 
     {% for module in post.get_field('block_modules') %}
 
@@ -40,6 +41,7 @@
         {% elseif module.acf_fc_layout == 'text_map' %}
             
             {% include 'sections/map.twig' with {
+                'isFullwidth': true,
                 'background_color': module.background_color,
                 'is_fullheight': module.is_fullheight,
                 'title': module.title,

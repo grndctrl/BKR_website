@@ -6,11 +6,11 @@
     }
     .table {
         width: 100%;
-        font-family: 'Chap-Light';
+        font-family: $family-display;
         font-size: 18px;
         letter-spacing: -0.02em;
         line-height: 1.825em;
-        color: #000000;
+        color: $red;
         tr:hover {
             color: $red;
             a {

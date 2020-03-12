@@ -1,17 +1,32 @@
-{% extends 'sections/section.twig' %}
+{% extends 'sections/section-fw.twig' %}
 
 {% set section_classes = ['text-360', 'fit-height'] %}
+{% set isFullwidth = true %}
+
+
 
 {% block content %}
 
-    {% if orientation == 'text-left' %}
-        {% include 'sections/partials/text-360-left.twig' with {
-            'clipping': 'is-clipped-right'
-        } %}
+    {% if isAppartments %}
+        {% if orientation == 'text-left' %}
+            {% include 'sections/partials/text-360-left.twig' with {
+                'clipping': 'is-clipped-right'
+            } %}
+        {% else %}
+            {% include 'sections/partials/text-360-front-right.twig' with {
+                'clipping': 'is-clipped-left'
+            } %}
+        {% endif %}
     {% else %}
-        {% include 'sections/partials/text-360-right.twig' with {
-            'clipping': 'is-clipped-left'
-        } %}
+        {% if orientation == 'text-left' %}
+            {% include 'sections/partials/text-360-front-left.twig' with {
+                'clipping': 'is-clipped-right'
+            } %}
+        {% else %}
+            {% include 'sections/partials/text-360-front-right.twig' with {
+                'clipping': 'is-clipped-left'
+            } %}
+        {% endif %}
     {% endif %}
 
 {% endblock %}

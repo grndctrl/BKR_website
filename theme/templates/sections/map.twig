@@ -1,32 +1,37 @@
-{% extends 'sections/section.twig' %}
+{% extends 'sections/section-fw.twig' %}
 
-{% set section_classes = ['map'] %}
+{% set section_classes = ['text-image'] %}
 
 {% if is_fullheight %}
-    {% set section_classes = ['map'] %}
+    {% set section_classes = ['text-image'] %}
 {% else %}
-    {% set section_classes = ['map', 'fit-height'] %}
+    {% set section_classes = ['text-image', 'fit-height'] %}
 {% endif %}
 
 {% block content %}
 
     <div class="columns body {% if header %}has-header{% endif %}{% if slides | length > 1 %} slider-wrapper{% endif %}{% if isAutomatic %} is-automatic{% endif %}"{% if isAutomatic %} data-slider-delay="{{ delay }}"{% endif %}>
-        <div class="column text-column is-hidden-mobile is-5-tablet is-4-desktop">
+        <div class="column text-column is-hidden-mobile is-6-tablet">
             <div data-appear="">
                 <h1>{{ title }}</h1>
             </div>
             <div data-appear="" data-appear-delay="200ms">
                 <p>{{ text }}</p>
-                <p style="margin-bottom: 4rem">
+                <p style="margin-top: 4rem">
                     <a class="button" href="{{ map_link }}" target="_blank" style="border: 1px solid black">In Google Maps Openen</a>
                 </p>
             </div>
 
+        </div>
 
+        <div class="column map-column is-6-tablet">
+            <div class="{% if slides|length > 1 %}slider {% endif %}{{ clipping }}">
 
-            {# <div class="map-link-button">
-                <a href="{{ map_link }}" target="_blank"><img src="{{ map_button }}" alt=""></a>
-            </div> #}
+                {% for slide in slides %}
+                    <img src="{{ TimberImage(slide.image).src('bunker-large') }}" alt="">
+                {% endfor %}
+
+            </div>
 
             {% if slides | length > 1 %}
                 <div class="slider-navbar">
@@ -35,24 +40,8 @@
                             <span>0{{ loop.index }}</span>
                         </div>
                     {% endfor %}
-
-                    {% if slides | length < 4 %}
-                        {% for spacer in 0..((4 - slides|length) - 1) %}
-                            <div class="slider-nav-spacer"></div>
-                        {% endfor %}
-                    {% endif %}
                 </div>
             {% endif %}
-        </div>
-
-        <div class="column map-column is-offset-1 is-6-tablet is-7-desktop">
-            <div class="{% if slides|length > 1 %}slider {% endif %}{{ clipping }}">
-
-                {% for slide in slides %}
-                    <img src="{{ TimberImage(slide.image).src('bunker-large') }}" alt="">
-                {% endfor %}
-
-            </div>
         </div>
 
         {# <div class="column map-column is-6-tablet is-7-desktop is-offset-1">

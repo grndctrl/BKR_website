@@ -2,11 +2,11 @@
     background: transparent;
     height: 2.6667em;
     border-radius: 0;
-    border-color: $black;
+    border-color: $red;
     padding: 0.1em 1.5em 0 1.5em;
     font-size: 1em;
     line-height: 2.6667em;
-    color: $black;
+    color: $red;
     text-transform: uppercase;
     overflow: hidden;
     transition: color 200ms ease-out;
@@ -20,14 +20,14 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: $black;
+        background: $red;
         z-index: -1;
         transition: top 200ms ease-out;
     }
 
     &:hover {
-        border-color: $black;
-        color: $ebb;
+        border-color: $red;
+        color: $white;
         &::before {
             top: 0;
         }
@@ -41,7 +41,7 @@
         color: $text-invert;
         border-color: $text-invert;
         &:hover {
-            color: $black;
+            color: $red;
         }
         &::before {
             background: $text-invert;
@@ -62,10 +62,10 @@
     &.is-red-inverted {
         background: transparent;
         color: $red;
-        border: 1px solid $black;
+        border: 1px solid $red;
 
         &:hover {
-            color: $black;
+            color: $red;
             background: transparent;
             &::before {
                 top: -100%;
@@ -74,7 +74,7 @@
 
         &::before {
             top: 0;
-            background: $black;
+            background: $red;
         }
     }
 
@@ -84,7 +84,7 @@
         border: 1px solid transparent;
 
         &:hover {
-            color: $black;
+            color: $red;
             background: transparent;
         }
 
@@ -99,7 +99,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: $black;
+            background: $red;
             z-index: -2;
         }
     }

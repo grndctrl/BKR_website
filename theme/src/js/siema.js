@@ -5,45 +5,75 @@ let wrappers = document.querySelectorAll('.slider-wrapper')
 wrappers = Array.prototype.slice.call(wrappers)
 
 wrappers.forEach(wrapper => {
-  let slider
+  let slider = wrapper.querySelector('.slider')
   let navItems = []
+  let navbar = wrapper.querySelector('.slider-navbar')
 
-  for (let i = 0; i < wrapper.childElementCount; i++) {
-    let child = wrapper.children[i]
+  if (navbar) {
+    if (navbar.classList.contains('is-double')) {
+      let navbarTop = child.querySelector('.slider-navbar.top')
+      let navbarBottom = child.querySelector('.slider-navbar.bottom')
+      let navBarItemsTop = navbarTop.querySelectorAll('.slider-nav-item')
+      let navBarItemsBottom = navbarBottom.querySelectorAll('.slider-nav-item')
 
-    if (child.querySelector('.slider') !== null) {
-      slider = child.querySelector('.slider')
+      // IE fix
+      navBarItemsTop = Array.prototype.slice.call(navBarItemsTop)
+      navBarItemsTop.forEach(item => {
+        navItems.push(item)
+      })
+
+      navBarItemsBottom = Array.prototype.slice.call(navBarItemsBottom)
+      navBarItemsBottom.forEach(item => {
+        navItems.push(item)
+      })
     } else {
-      let navbar = child.querySelector('.slider-navbar')
-
-      if (navbar) {
-        if (navbar.classList.contains('is-double')) {
-          let navbarTop = child.querySelector('.slider-navbar.top')
-          let navbarBottom = child.querySelector('.slider-navbar.bottom')
-          let navBarItemsTop = navbarTop.querySelectorAll('.slider-nav-item')
-          let navBarItemsBottom = navbarBottom.querySelectorAll('.slider-nav-item')
-
-          // IE fix
-          navBarItemsTop = Array.prototype.slice.call(navBarItemsTop)
-          navBarItemsTop.forEach(item => {
-            navItems.push(item)
-          })
-
-          navBarItemsBottom = Array.prototype.slice.call(navBarItemsBottom)
-          navBarItemsBottom.forEach(item => {
-            navItems.push(item)
-          })
-        } else {
-          let navBarItems = navbar.querySelectorAll('.slider-nav-item')
-          // IE fix
-          navBarItems = Array.prototype.slice.call(navBarItems)
-          navBarItems.forEach(item => {
-            navItems.push(item)
-          })
-        }
-      }
+      let navBarItems = navbar.querySelectorAll('.slider-nav-item')
+      // IE fix
+      navBarItems = Array.prototype.slice.call(navBarItems)
+      navBarItems.forEach(item => {
+        navItems.push(item)
+      })
     }
   }
+    
+  
+
+  // for (let i = 0; i < wrapper.childElementCount; i++) {
+  //   let child = wrapper.children[i]
+
+  //   if (child.querySelector('.slider') !== null) {
+  //     slider = child.querySelector('.slider')
+  //   } else {
+  //     let navbar = child.querySelector('.slider-navbar')
+
+  //     if (navbar) {
+  //       if (navbar.classList.contains('is-double')) {
+  //         let navbarTop = child.querySelector('.slider-navbar.top')
+  //         let navbarBottom = child.querySelector('.slider-navbar.bottom')
+  //         let navBarItemsTop = navbarTop.querySelectorAll('.slider-nav-item')
+  //         let navBarItemsBottom = navbarBottom.querySelectorAll('.slider-nav-item')
+
+  //         // IE fix
+  //         navBarItemsTop = Array.prototype.slice.call(navBarItemsTop)
+  //         navBarItemsTop.forEach(item => {
+  //           navItems.push(item)
+  //         })
+
+  //         navBarItemsBottom = Array.prototype.slice.call(navBarItemsBottom)
+  //         navBarItemsBottom.forEach(item => {
+  //           navItems.push(item)
+  //         })
+  //       } else {
+  //         let navBarItems = navbar.querySelectorAll('.slider-nav-item')
+  //         // IE fix
+  //         navBarItems = Array.prototype.slice.call(navBarItems)
+  //         navBarItems.forEach(item => {
+  //           navItems.push(item)
+  //         })
+  //       }
+  //     }
+  //   }
+  // }
 
 
 

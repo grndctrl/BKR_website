@@ -1,0 +1,15 @@
+{% block before %}{% endblock %}
+
+<section class="section{% for class in section_classes %}{{ ' ' ~ class }}{% endfor %} {{ title|striptags|title_to_class }}" data-background-color="{% if background_color %}{{ background_color }}{% else %}white{% endif %}" {% if isFullwidth == false %}{% else %} style="padding-left: 0; padding-right: 0;"{% endif %}>
+    
+    {% block section %}{% endblock %}
+    
+    <div class="container is-fluid" {% if isFullwidth == false %}{% else %}style="margin-left: auto; margin-right: auto;"{% endif %}>
+
+        {% block content %}{% endblock %}
+
+    </div>
+
+</section>
+
+{% block after %}{% endblock %}

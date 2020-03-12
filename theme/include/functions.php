@@ -14,6 +14,17 @@ if (! class_exists('Timber')) {
 
 add_action('after_setup_theme', 'wpdocs_theme_setup');
 
+// add_action( 'admin_init', 'hide_editor' );
+
+// function hide_editor() {
+//     $post_id = $_GET['post'] ? $_GET['post'] : null;
+//     if( !isset( $post_id ) ) return;
+//     $pagetitle = get_the_title($post_id);
+//     if($pagetitle == 'Home'){
+//         remove_post_type_support('page', 'editor');
+//     }
+// }
+
 function cc_mime_types($mimes)
 {
     $mimes['svg'] = 'image/svg+xml';
@@ -43,6 +54,7 @@ class StarterSite extends TimberSite
         add_filter('get_twig', array( $this, 'add_to_twig' ));
         add_action('init', array( $this, 'register_post_types' ));
         add_action('init', array( $this, 'register_taxonomies' ));
+        // add_action( 'admin_init', array( $this, 'hide_editor' ));
         parent::__construct();
     }
 

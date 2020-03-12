@@ -4,23 +4,15 @@
 
 {% block content %}
 
-    <div class="polygon-wrapper">
-        <div class="polygon-content align-clipping-left">
-
-            {% if page_variation == 'front' %}
-                {% include 'sections/partials/polygon-box-front.twig' %}
-            {% else %}
-                {% include 'sections/partials/polygon-box-about.twig' %}
-            {% endif %}
-
-        </div>
-
-        <div class="polygon-top">
-            <div class="fill"></div>
-        </div>
-        <div class="polygon-bottom">
-            <div class="fill"></div>
-        </div>
+<div class="columns">
+    <div class="column is-10-tablet is-offset-1-tablet is-8-desktop is-offset-2-desktop">
+        {% if page_variation == 'front' %}
+            {% include 'sections/partials/polygon-box-front.twig' %}
+        {% else %}
+            {% include 'sections/partials/polygon-box-about.twig' %}
+        {% endif %}
     </div>
+</div>
+
 
 {% endblock %}

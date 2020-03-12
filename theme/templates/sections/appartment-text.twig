@@ -1,0 +1,28 @@
+{% extends 'sections/section.twig' %}
+
+{% set section_classes = ['appartment-text', 'fit-height'] %}
+{% set inverted = '' %}
+
+{% if background_color == 'midnight' %}
+{% set inverted = 'is-inverted' %}
+{% elseif background_color == 'red' %}
+{% set inverted = 'is-inverted' %}
+{% endif %}
+
+{% block content %}
+
+    <div class="columns">
+        <div class="column has-text-centered">
+            <div class="flex-column">
+                <span class="text-enormous">{{ name }}</span>
+                <span class="text-area">{{ area }}</span>
+            </div>
+
+            <div data-appear="" data-appear-delay="">
+                <a href="{{ button.button_link }}" class="button {{ inverted }}">{{ button.button_caption }}</a>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

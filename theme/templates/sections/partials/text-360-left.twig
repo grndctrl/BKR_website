@@ -1,32 +1,54 @@
 <div class="columns body is-multiline slider-wrapper">
-    <div class="column slider-column clipped-360-column is-7-tablet is-8-desktop">
-        <div class="clipped-360 {{ clipping }}">
-            <div class="slider">
-                <div class="wrapper-360" style="position: relative">
-                    <div class="background-image" style="background-image: url('{{ TimberImage(image).src('bunker-large') }}')">
-                        <img src="http://placehold.it/4x3" alt="" class="placeholder">
-                    </div>
+    <div class="column slider-column clipped-360-column is-6-tablet">
 
-                    <div class="button-fullscreen" data-kuula="{{ kuula|share }}" style="margin-left: -6%">
-                        <img src="{{ theme.link }}/assets/images/open360.svg" alt="">
-                        <div class="script-placeholder" style="visibility: hidden"></div>
-                    </div>
+        <div class="slider">
+            <div class="wrapper-360" style="position: relative">
+                <div class="background-image" style="background-image: url('{{ TimberImage(image).src('bunker-large') }}')">
+                    <img src="http://placehold.it/4x3" alt="" class="placeholder">
                 </div>
 
-                <div class="wrapper-360" style="position: relative">
-                    <div class="background-image" style="background-image: url('{{ TimberImage(image_two).src('bunker-large') }}')">
-                        <img src="http://placehold.it/4x3" alt="" class="placeholder">
-                    </div>
+                <div class="button-fullscreen" data-kuula="{{ kuula|share }}">
+                    <img src="{{ theme.link }}/assets/images/open360.svg" alt="">
+                    <div class="script-placeholder" style="visibility: hidden"></div>
+                </div>
+            </div>
 
-                    <div class="button-fullscreen" data-kuula="{{ kuula_two|share }}" style="margin-left: -6%">
-                        <img src="{{ theme.link }}/assets/images/open360.svg" alt="">
-                        <div class="script-placeholder" style="visibility: hidden"></div>
-                    </div>
+            <div class="wrapper-360" style="position: relative">
+                <div class="background-image" style="background-image: url('{{ TimberImage(image_two).src('bunker-large') }}')">
+                    <img src="http://placehold.it/4x3" alt="" class="placeholder">
+                </div>
+
+                <div class="button-fullscreen" data-kuula="{{ kuula_two|share }}" style="margin-left: -6%">
+                    <img src="{{ theme.link }}/assets/images/open360.svg" alt="">
+                    <div class="script-placeholder" style="visibility: hidden"></div>
                 </div>
             </div>
         </div>
+
+        
+        <div class="slider-navbar" style="justify-content: flex-start">
+            <div class="slide-subtitles is-hidden-mobile" style="justify-content: flex-end;">
+
+                <h3 class="slide-subtitle slide-subtitle-{{ title|striptags|title_to_class }}-0-mobile is-active">
+                    {{ subtitle }}
+                </h3>
+
+                <h3 class="slide-subtitle slide-subtitle-{{ title|striptags|title_to_class }}-1-mobile">
+                    {{ subtitle_two }}
+                </h3>
+
+            </div>
+            
+                <div class="is-hidden-mobile" style="padding-right: 2em"></div>
+                {% for item in 0..1 %}
+                <div data-slider-id="{{ title|striptags|title_to_class }}" data-slider-index="{{ loop.index0 }}" class="slider-nav-item{% if loop.first %} is-active{% endif %}">
+                        <span>0{{ loop.index }}</span>
+                    </div>
+                {% endfor %}
+
+        </div>
     </div>
-    <div class="column is-hidden-tablet">
+    {# <div class="column is-hidden-tablet">
         <div class="appartment-name">
             <h3 class="subtitle-360-0-mobile is-active">
                 {{ subtitle }}
@@ -36,8 +58,8 @@
                 {{ subtitle_two }}
             </h3>
         </div>
-    </div>
-    <div class="column is-hidden-tablet">
+    </div> #}
+    {# <div class="column is-hidden-tablet">
         <div class="slider-navbar">
             {% for item in 0..1 %}
                 <div data-slider-index="{{ loop.index0 }}" class="nav-item-360 slider-nav-item{% if loop.first %} is-active{% endif %}">
@@ -47,8 +69,23 @@
             <div class="slider-nav-spacer"></div>
             <div class="slider-nav-spacer"></div>
         </div>
+    </div> #}
+
+
+    <div class="column is-hidden-tablet" style="padding-left: 2.25rem; padding-right: 2.25rem">
+        <div class="slide-subtitles">
+            
+                <h3 class="slide-subtitle slide-subtitle-{{ title|striptags|title_to_class }}-0-mobile is-active">
+                    {{ subtitle }}
+                </h3>
+
+                <h3 class="slide-subtitle slide-subtitle-{{ title|striptags|title_to_class }}-1-mobile">
+                    {{ subtitle_two }}
+                </h3>
+        </div>
     </div>
-    <div class="column text-column is-5-tablet is-4-desktop">
+
+    <div class="column text-column is-6-tablet">
         <div data-appear="">
             <h1>{{ title }}</h1>
         </div>
@@ -56,7 +93,7 @@
             <p>{{ text }}</p>
         </div>
 
-        <div class="slider-navbar is-hidden-mobile">
+        {# <div class="slider-navbar is-hidden-mobile">
             {% for item in 0..1 %}
                 <div data-slider-index="{{ loop.index0 }}" class="nav-item-360 slider-nav-item{% if loop.first %} is-active{% endif %}">
                     <span>0{{ loop.index }}</span>
@@ -64,9 +101,9 @@
             {% endfor %}
             <div class="slider-nav-spacer"></div>
             <div class="slider-nav-spacer"></div>
-        </div>
+        </div> #}
     </div>
-    <div class="column is-hidden-mobile is-7-tablet is-8-desktop">
+    {# <div class="column is-hidden-mobile is-7-tablet is-8-desktop">
         <div class="appartment-name">
             <h3 class="subtitle-360-0 is-active">
                 {{ subtitle }}
@@ -76,5 +113,5 @@
                 {{ subtitle_two }}
             </h3>
         </div>
-    </div>
+    </div> #}
 </div>

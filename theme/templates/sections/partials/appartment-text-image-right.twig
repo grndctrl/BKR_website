@@ -1,0 +1,98 @@
+{% if header %}
+
+    <div class="columns header">
+        <div class="column is-6-tablet has-text-left">
+            <h2 data-appear="" class="no-limit" style="margin-left: 25%">{{ header }}</h2>
+        </div>
+    </div>
+
+{% endif %}
+
+<div class="columns body{% if header %} has-header{% endif %}{% if slides | length > 1 %} slider-wrapper{% endif %}">
+
+    <div class="column slider-column is-6-tablet">
+        <div class="{% if slides|length > 1 %}slider {% endif %}{{ clipping }}">
+
+            {% for slide in slides %}
+                <div class="background-image" style="background-image: url('{{ TimberImage(slide.image).src('bunker-large') }}')">
+                    <img src="http://placehold.it/4x3" alt="" class="placeholder">
+                </div>
+            {% endfor %}
+
+        </div>
+        
+        <div class="slider-navbar" style="justify-content: flex-start">
+            <div class="slide-subtitles is-hidden-mobile" style="justify-content: flex-end;">
+                {% for slide in slides %}
+                <h3 class="slide-subtitle slide-subtitle-{{ title|striptags|title_to_class }}-{{ loop.index0 }}-mobile{% if loop.first %} is-active{% endif %}">
+                    {{ slide.subtitle }}
+                </h3>
+                {% endfor %}
+            </div>
+            
+            {% if slides|length > 1 %}
+                <div class="is-hidden-mobile" style="padding-right: 2em"></div>
+            {% for slide in slides %}
+                <div data-slider-id="{{ title|striptags|title_to_class }}" data-slider-index="{{ loop.index0 }}" class="slider-nav-item{% if loop.first %} is-active{% endif %}">
+                    <span>0{{ loop.index }}</span>
+                </div>
+            {% endfor %}
+            {% endif %}
+
+        </div>
+
+    </div>
+
+    <div class="column is-hidden-tablet" style="padding-left: 2.25rem; padding-right: 2.25rem">
+        <div class="slide-subtitles">
+            {% for slide in slides %}
+            <h3 class="slide-subtitle slide-subtitle-{{ title|striptags|title_to_class }}-{{ loop.index0 }}-mobile{% if loop.first %} is-active{% endif %}">
+                {{ slide.subtitle }}
+            </h3>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="column is-hidden-tablet" style="padding-left: 2.25rem; padding-right: 2.25rem">
+        <div data-appear="">
+            <h1>{{ title }}</h1>
+        </div>
+        <div data-appear="" data-appear-delay="200ms">
+            <p>{{ text }}</p>
+        </div>
+        {% if button | length > 0 %}
+            <div data-appear="" data-appear-delay="400ms">
+                <a href="{{ button[0].button_link }}" class="button">{{ button[0].button_caption }}</a>
+            </div>
+        {% endif %}
+
+    </div>
+
+    <div class="column text-column is-hidden-mobile is-6-tablet">
+        <div data-appear="">
+            <h1>{{ title }}</h1>
+        </div>
+
+        <div data-appear="" data-appear-delay="200ms">
+            <p>{{ text }}</p>
+        </div>
+
+        {% if button | length > 0 %}
+            <div data-appear="" data-appear-delay="400ms">
+                <a href="{{ button[0].button_link }}{{ button[0].button_link_suffix }}" class="button">{{ button[0].button_caption }}</a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+{# <div class="columns">
+    <div class="column is-hidden-mobile is-5-tablet is-6-desktop">
+        <div class="slide-subtitles">
+            {% for slide in slides %}
+            <h3 class="slide-subtitle slide-subtitle-{{ title|striptags|title_to_class }}-{{ loop.index0 }}{% if loop.first %} is-active{% endif %}">
+                {{ slide.subtitle }}
+            </h3>
+            {% endfor %}
+        </div>
+    </div>
+</div> #}

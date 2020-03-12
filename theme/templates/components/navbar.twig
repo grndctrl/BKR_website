@@ -2,7 +2,7 @@
     <div class="container is-fluid">
         <div class="navbar-brand">
             <a class="navbar-item" href="{% if back_link %}{{ back_link }}{% else %}{{ logo.link }}{% endif %}">
-                <img class="logo" src="{{ logo.image }}">
+                {% include "components/logo.twig" %}
             </a>
 
             <a target="_blank" href="https://pdb.eye-move.nl/Contact/ProjectInschrijven/start.html?RecID=97043" class="button mobile-inschrijven is-hidden-desktop">inschrijven</a>

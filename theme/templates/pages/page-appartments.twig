@@ -9,7 +9,7 @@
     {% include 'components/fullscreen-360.twig' %}
 
     {% include 'sections/splash.twig' with {
-        'background_color': 'light-red',
+        'background_color': 'white',
         'content': '360',
         'text': post.get_field('splash_360_appartment'),
         'scroll_caption': post.get_field('splash_360_scroll_button_caption'),
@@ -26,12 +26,13 @@
     {% include 'sections/woningzoeker.twig' %}
 
     {% include 'sections/text-360.twig' with {
+        'isAppartments': true,
         'clipping': 'is-clipped-right',
         'orientation': 'text-left',
-        'background_color': 'light-red',
+        'background_color': 'red',
         'title': post.get_field('right_360_title'),
-        'subtitle': post.get_field('right_360_appartment'),
         'text': post.get_field('right_360_text'),
+        'subtitle': post.get_field('right_360_appartment'),
         'image': post.get_field('right_360_image'),
         'kuula': post.get_field('right_360_kuula'),
         'subtitle_two': post.get_field('right_360_appartment_two'),
