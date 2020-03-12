@@ -4,3 +4,5 @@ node_modules
 .DS_Store
 server
 tailwind.config.js
+
+*.pdf
