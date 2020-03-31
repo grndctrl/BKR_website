@@ -135,6 +135,7 @@
             .columns.header {
                 h2 {
                     font-size: 32px;
+                    margin-left: 25%;
                 }
             }
             .columns.body {
@@ -167,7 +168,8 @@
         .container {
             .columns.header {
                 h2 {
-                    font-size: 50px;
+                    font-size: 32px;
+                    margin-left: 50%;
                 }
             }
             .columns.body .text-column {
@@ -183,7 +185,7 @@
         .container {
             .columns.header {
                 .no-limit h2 {
-                    max-width: 700px;
+                    // max-width: 700px;
                 }
             } 
         }
