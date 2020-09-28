@@ -3,7 +3,10 @@
 <!--[if IE 7]><html class="no-js ie ie7 lt-ie9 lt-ie8" {{ site.language_attributes }}> <![endif]-->
 <!--[if IE 8]><html class="no-js ie ie8 lt-ie9" {{ site.language_attributes }}> <![endif]-->
 <!--[if gt IE 8]><!-->
+
+
 <html class="no-js" {{ site.language_attributes }}>
+<!-- CORRECT VERSION-->
     <!--<![endif]-->
     <head>
         <meta charset="{{ site.charset }}"/>
@@ -26,9 +29,9 @@
         <link rel="author" href="{{ site.theme.link }}/humans.txt"/>
         <link rel="pingback" href="{{ site.pingback_url }}"/>
 
-        <style>.grecaptcha-badge { opacity: 0 }</style>
-
         {{function('wp_head')}}
+
+        <style>.grecaptcha-badge { opacity: 0 }</style>
 
         {% block head %}{% endblock %}
     </head>

@@ -1,0 +1,126 @@
+{% extends 'sections/section.twig' %}
+
+{% if (content.acf_fc_layout == "bouw_slider") %}
+{% set section_classes = ['text-image', 'fit-height'] %}
+{% else %}
+{% set section_classes = ['bouw', 'fit-height'] %}
+{% endif %}
+{% block content %}
+
+
+
+   
+    <div class="columns body slider-wrapper">
+      <div class="column text-column is-4">
+        <h1>{{ title }}</h1>
+        <p class="date" style="color: #C69989; margin-bottom: 0; font-size: 1.5em; font-family: Granville-Light; text-transform: uppercase;">{{ date }}</p>
+        <p style="margin-top: 2em">
+            {{ text }}
+        </p>
+            <div class="is-hidden-mobile">
+        {% if slides | length > 4 %}
+            <div class="slider-navbar is-double top" style="width: calc(100% - 24px)">
+                {% for item in 1..4 %}
+                    <div data-slider-index="{{ loop.index0 }}" class="slider-nav-item{% if loop.first %} is-active{% endif %}">
+                        <span>0{{ loop.index }}</span>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="slider-navbar is-double bottom" style="width: calc(100% - 24px)">
+                {% for item in 5..slides | length %}
+                    <div data-slider-index="{{ loop.index0 + 4 }}" class="slider-nav-item">
+                        <span>0{{ loop.index + 4 }}</span>
+                    </div>
+                {% endfor %}
+
+                {% if slides | length < 8 %}
+                    {% for spacer in 0..((4 - (slides|length - 4)) - 1) %}
+                        <div class="slider-nav-spacer {{ slides|length }}"></div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+        {% elseif slides | length > 1 %}
+            <div class="slider-navbar" style="width: calc(100% - 24px)">
+                {% for slide in slides %}
+                    <div data-slider-index="{{ loop.index0 }}" class="slider-nav-item{% if loop.first %} is-active{% endif %}">
+                        <span>0{{ loop.index }}</span>
+                    </div>
+                {% endfor %}
+
+                {% if slides | length < 4 %}
+                    {% for spacer in 0..((4 - slides|length) - 1) %}
+                        <div class="slider-nav-spacer"></div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        {% endif %}
+      
+            </div>
+      </div>
+
+      <div class="column is-8 is-7-desktop is-offset-1-desktop slider-column">
+        <div class="{% if slides|length > 1 %}slider{% endif %}">
+
+          {% for slide in slides %}
+            <div class="background-image" style="background-image: url('{{ TimberImage(slide.image).src('bunker-large') }}')">
+              <img src="https://placehold.it/4x3" alt="" class="placeholder">
+            </div>
+          {% endfor %}
+
+        </div>
+      </div>
+      <div class="is-hidden-tablet column" style="height: 5rem; position: relative;">
+            {% if slides | length > 4 %}
+                <div class="slider-navbar is-double top" style="width: calc(100% - 24px)">
+                    {% for item in 1..4 %}
+                        <div data-slider-index="{{ loop.index0 }}" class="slider-nav-item{% if loop.first %} is-active{% endif %}">
+                            <span>0{{ loop.index }}</span>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="slider-navbar is-double bottom" style="width: calc(100% - 24px)">
+                    {% for item in 5..slides | length %}
+                        <div data-slider-index="{{ loop.index0 + 4 }}" class="slider-nav-item">
+                            <span>0{{ loop.index + 4 }}</span>
+                        </div>
+                    {% endfor %}
+
+                    {% if slides | length < 8 %}
+                        {% for spacer in 0..((4 - (slides|length - 4)) - 1) %}
+                            <div class="slider-nav-spacer {{ slides|length }}"></div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+
+            {% elseif slides | length > 1 %}
+                <div class="slider-navbar" style="width: calc(100% - 24px)">
+                    {% for slide in slides %}
+                        <div data-slider-index="{{ loop.index0 }}" class="slider-nav-item{% if loop.first %} is-active{% endif %}">
+                            <span>0{{ loop.index }}</span>
+                        </div>
+                    {% endfor %}
+
+                    {% if slides | length < 4 %}
+                        {% for spacer in 0..((4 - slides|length) - 1) %}
+                            <div class="slider-nav-spacer"></div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            {% endif %}
+        
+        </div>
+    </div>
+
+    <div class="columns">
+        <div class="column is-offset-4 is-offset-5-desktop">
+            <p style="margin-top: 4em; margin-bottom: 1em; color: #C69989">Deel dit bericht</p>
+            <div style="margin: 0 -4px;">
+            {{ post.content }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

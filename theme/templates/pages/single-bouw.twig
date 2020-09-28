@@ -11,7 +11,10 @@
         'title': post.title,
         'date': post.get_field('bouw_date'),
         'text': post.get_field('text'),
-        'slides': post.get_field('slider')
+        'slides': post.get_field('slider'),
+        'video': post.get_field('video'),
+        'preview': post.get_field('video_thumbnail'),
+        'type': post.get_field('beeldtype')
     } %}
 
 {% endblock %}
