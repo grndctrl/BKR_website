@@ -1,0 +1,24 @@
+{% extends 'sections/section.twig' %}
+
+{% set section_classes = ['promo-video', 'fit-height'] %}
+{% set section_id = 'promo-video' %}
+
+{% block content %}
+
+	<div class="video-wrapper">
+		<div class="video-thumbnail" style="background-image: url({{ TimberImage(thumbnail).src('bunker-large') }})"></div>
+		<video class="video-player" playsinline controls>
+			<source src="{{ theme.link}}/assets/video/bunkertoren.mp4" type="video/mp4">
+		</video>
+
+		<script>
+			var thumb = document.querySelector('.video-thumbnail');
+var video = document.querySelector('.video-player');
+thumb.addEventListener('click', function () {
+thumb.classList.add('hidden');
+video.play();
+});
+		</script>
+	</div>
+
+{% endblock %}

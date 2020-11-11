@@ -1,11 +1,13 @@
 {# app START #}
 <div id="app"></div>
-<script src="{{ site.theme.link }}/assets/woningzoeker/js/chunk-vendors.72871a71.js"></script>
-<script src="{{ site.theme.link }}/assets/woningzoeker/js/app.d44b4d05.js"></script>
+{# <script src="{{ site.theme.link }}/assets/woningzoeker/js/chunk-vendors.72871a71.js"></script>
+<script src="{{ site.theme.link }}/assets/woningzoeker/js/app.d44b4d05.js"></script> #}
+<script src="{{ site.theme.link }}/assets/woningzoeker/js/chunk-vendors.e6eca3fa.js"></script>
+<script src="{{ site.theme.link }}/assets/woningzoeker/js/app.26c9d1b4.js"></script>
 {# app END #}
 
 {# DOWNLOADS START #}
-<section class="section app-downloads fit-height">
+{# <section class="section app-downloads fit-height">
     <div class="container is-fluid" style="padding-top: 0; min-height: auto">
         <div class="columns is-hidden-tablet">
             <div class="column is-offset-5">
@@ -92,5 +94,33 @@
             </div>
         </div>
     </div>
+</section> #}
+{# DOWNLOADS END #}
+
+{# DOWNLOADS START #}
+	<section class="section app-downloads fit-height"> <div class="container is-fluid" style="padding-top: 0; min-height: auto">
+		<div class="columns">
+			<div class="column">
+				<div class="level button-group">
+					<div class="level-item">
+						<a target="_blank" href="{{ 'primary'|get_sign_in_url }}" class="button">NIEUWSGIERIG?</a>
+					</div>
+					<div class="level-item">
+						<a target="_blank" href="http://bunkertoren.nl/site/wp-content/themes/bunkertoren/assets/woningzoeker/BunkerToren_Brochure.pdf" class="button">Brochure (PDF)</a>
+					</div>
+					<div class="level-item">
+						<a target="_blank" href="http://bunkertoren.nl/site/wp-content/themes/bunkertoren/assets/woningzoeker/BunkerToren_Technische_Omschrijving.pdf" class="button">Specificaties (PDF)</a>
+					</div>
+					<div class="level-item">
+						<a target="_blank" href="http://bunkertoren.nl/site/wp-content/themes/bunkertoren/assets/woningzoeker/BunkerToren_Prijslijst.pdf" class="button">Prijslijst (PDF)</a>
+					</div>
+					<div class="level-item">
+						<a target="_blank" href="http://bunkertoren.nl/site/wp-content/themes/bunkertoren/assets/woningzoeker/BunkerToren_Verkoop_Procedure.pdf" class="button">Verkoop Procedure (PDF)</a>
+					</div>
+					<!-- <div class="level-item"><a target="_blank" href="http://bunkertoren.nl/site/wp-content/themes/bunkertoren/assets/woningzoeker/BunkerToren_Prijslijst.pdf" class="button">Verkoop Tekeningen (PDF)</a></div> -->
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
 {# DOWNLOADS END #}

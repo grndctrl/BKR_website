@@ -1,18 +1,25 @@
-    <div class="content push-down">
-        <h2>{{ text }}</h2>
-    </div>
+<div class="content push-down">
+	<h2>{{ text }}</h2>
+</div>
 
-    <div class="level">
-        <div class="left-item level-left">
-            <p>
-                <a href="mailto:{{ contact.mail }}">{{ contact.mail }}</a><br><a href="tel:{{ contact.phone|replace({' ': ''}) }}">{{ contact.phone }}</a>
-            </p>
-        </div>
-        <div class="left-item level-right">
-            {% if button.url %}
-                <a href="{{ button.url }}" target="_blank" class="button"><span class="constructed">s</span>chrijf je in</a>
-            {% else %}
-                <a href="{{ 'primary'|get_sign_in_url }}" target="_blank" class="button"><span class="constructed">s</span>chrijf je in</a>
-            {% endif %}
-        </div>
-    </div>
+<div class="level" style="align-items: flex-start;">
+	<div class="left-item level-left">
+		<div class="">
+			<p>
+				<a href="mailto:{{ contact.mail }}">{{ contact.mail }}</a><br><a href="tel:{{ contact.phone|replace({' ': ''}) }}">{{ contact.phone }}</a>
+			</p>
+			<p style="margin: 0">
+				<a href="mailto:nieuwbouw@eindhoven.vansantvoort.nl">nieuwbouw@eindhoven.vansantvoort.nl</a><br><a href="tel:0402692530">040 269 2530</a>
+			</p>
+		</div>
+	</div>
+	<div class="left-item level-right">
+		{% if button.url %}
+			<a href="{{ button.url }}" target="_blank" class="button">
+				<span class="constructed">s</span>chrijf je in</a>
+		{% else %}
+			<a href="{{ 'primary'|get_sign_in_url }}" target="_blank" class="button">
+				<span class="constructed">s</span>chrijf je in</a>
+		{% endif %}
+	</div>
+</div>

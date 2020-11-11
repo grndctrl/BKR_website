@@ -5,51 +5,75 @@
 <!--[if gt IE 8]><!-->
 
 
-<html class="no-js" {{ site.language_attributes }}>
-<!-- CORRECT VERSION-->
-    <!--<![endif]-->
-    <head>
-        <meta charset="{{ site.charset }}"/>
-        <title>
-                {{ site.name }}
-    
-        </title>
-        <meta name="description" content="{{ site.description }}">
-        <link rel="stylesheet" href="{{ site.theme.link }}/style.css" type="text/css" media="screen"/>
-        <link rel="stylesheet" href="{{ site.theme.link }}/shared.bundle.css?v=0.1" type="text/css" media="screen"/>
-        
-        <link href="{{ site.theme.link }}/assets/woningzoeker/css/app.02bfb400.css" rel=preload as=style>
-        <link href="{{ site.theme.link }}/assets/woningzoeker/js/app.d44b4d05.js" rel=preload as=script>
-        <link href="{{ site.theme.link }}/assets/woningzoeker/js/chunk-vendors.72871a71.js" rel=preload as=script>
-        <link href="{{ site.theme.link }}/assets/woningzoeker/css/app.02bfb400.css?v=0.1" rel=stylesheet>
-        
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="author" href="{{ site.theme.link }}/humans.txt"/>
-        <link rel="pingback" href="{{ site.pingback_url }}"/>
+	<html class="no-js" {{ site.language_attributes }}> <!-- CORRECT VERSION-->
+	<!--<![endif]-->
+		<head>
+		<meta charset="{{ site.charset }}"/> <title>
+			{{ site.name }}
 
-        {{function('wp_head')}}
+		</title>
+		<meta name="description" content="{{ site.description }}">
+		<link rel="stylesheet" href="{{ site.theme.link }}/style.css" type="text/css" media="screen"/>
+		<link
+		rel="stylesheet" href="{{ site.theme.link }}/shared.bundle.css?v=0.1" type="text/css" media="screen"/>
 
-        <style>.grecaptcha-badge { opacity: 0 }</style>
+		{# <link href="{{ site.theme.link }}/assets/woningzoeker/css/app.02bfb400.css" rel="preload" as="style">
+								<link href="{{ site.theme.link }}/assets/woningzoeker/js/app.d44b4d05.js" rel="preload" as="script">
+								<link href="{{ site.theme.link }}/assets/woningzoeker/js/chunk-vendors.72871a71.js" rel="preload" as="script">
+								<link href="{{ site.theme.link }}/assets/woningzoeker/css/app.02bfb400.css?v=0.1" rel="stylesheet"> #}
 
-        {% block head %}{% endblock %}
-    </head>
+		<link href="{{ site.theme.link }}/assets/woningzoeker/css/app.e810979e.css" rel="preload" as="style">
+		<link href="{{ site.theme.link }}/assets/woningzoeker/js/app.26c9d1b4.js" rel="preload" as="script">
+		<link href="{{ site.theme.link }}/assets/woningzoeker/js/chunk-vendors.e6eca3fa.js" rel="preload" as="script">
+		<link href="{{ site.theme.link }}/assets/woningzoeker/css/app.e810979e.css?v=0.1" rel="stylesheet">
 
-    <body onload="hideLoader()" class="{% for class in body_classes %}{{ ' ' ~ class }}{% endfor %}" data-template="base.twig">
 
-        {% include './components/loader.twig' %}
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="author" href="{{ site.theme.link }}/humans.txt"/>
+		<link rel="pingback" href="{{ site.pingback_url }}"/>
 
-        {% include './components/navbar.twig' with {
+		{{function('wp_head')}}
+
+		<style>
+			.grecaptcha-badge {
+				opacity: 0
+			}
+		</style>
+
+		<!-- Google Tag Manager -->
+		<script>
+			(function (w, d, s, l, i) {
+w[l] = w[l] || [];
+w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+var f = d.getElementsByTagName(s)[0],
+j = d.createElement(s),
+dl = l != 'dataLayer' ? '&l=' + l : '';
+j.async = true;
+j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-MJVGKNZ');
+		</script>
+		<!-- End Google Tag Manager -->
+
+		{% block head %}{% endblock %}
+	</head>
+
+	<body onload="hideLoader()" class="{% for class in body_classes %}{{ ' ' ~ class }}{% endfor %}" data-template="base.twig">
+
+		{% include './components/loader.twig' %}
+
+		{% include './components/navbar.twig' with {
             'logo': {
                 'image' : navbar_image,
                 'link': navbar_link
             }
         } %}
 
-        {% block body %}{% endblock %}
+		{% block body %}{% endblock %}
 
-        {% include './components/footer.twig' with {
+		{% include './components/footer.twig' with {
             'logo_url' : theme.link ~ '/assets/images/logo.svg',
             'background_color': footer_background_color,
             'contact' : {
@@ -59,17 +83,21 @@
 
         } %}
 
-        <script src="{{ site.theme.link }}/shared.bundle.js?v=0.1"></script>
+		<script src="{{ site.theme.link }}/shared.bundle.js?v=0.1"></script>
 
-        {{ function('wp_footer') }}
+		{{ function('wp_footer') }}
 
-        <!-- tracking code datlab.nl -->
-        <script type="text/javascript">
-        // (function(d){
-        // var g=d.createElement('script'),s=d.scripts[0];
-        // g.src='//w1996.datlableadtracker.nl/analytics.js';
-        // s.parentNode.insertBefore(g,s)}(document))
-        </script>
-        <!-- end tracking code datlab.nl -->
-    </body>
-</html>
+		<!-- tracking code datlab.nl -->
+		<script type="text/javascript">// (function(d){
+// var g=d.createElement('script'),s=d.scripts[0];
+// g.src='//w1996.datlableadtracker.nl/analytics.js';
+// s.parentNode.insertBefore(g,s)}(document))
+	</script>
+	<!-- end tracking code datlab.nl -->
+
+	<!-- Google Tag Manager (noscript) -->
+	<noscript>
+		<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJVGKNZ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+	</noscript>
+	<!-- End Google Tag Manager (noscript) -->
+</body></html>

@@ -13,7 +13,7 @@ let i2 = 0
 
 let navbarScene = new ScrollMagic.Scene()
 
-navbarScene.on('update', function () {
+navbarScene.on('update', function() {
   let x1 = controller.info('scrollDirection')
   let x2 = window.scrollY
   let x3 = 400
@@ -32,7 +32,7 @@ navbarScene.on('update', function () {
 // Reset if mouse is near
 document.onmousemove = checkIfMouseIsNear
 
-function checkIfMouseIsNear (event) {
+function checkIfMouseIsNear(event) {
   if (event.clientY < 200) {
     navbar.classList.remove('is-pushed-up')
     i2 = 0
@@ -52,18 +52,18 @@ let fPlaceholder = document.querySelector('.footer-placeholder')
 console.log(f.height)
 
 fPlaceholder.style.height = f.clientHeight + 'px'
-let offsetPlaceholder = (f.clientHeight / 2) + 'px'
+let offsetPlaceholder = f.clientHeight / 2 + 'px'
 
 let footerScene = new ScrollMagic.Scene({
   triggerElement: '.footer-placeholder',
   triggerHook: 'onEnter',
-  offset: offsetPlaceholder
+  offset: offsetPlaceholder,
 })
 footerScene.setClassToggle('#footer', 'is-active')
 
 let footerBodyScene = new ScrollMagic.Scene({
   triggerElement: '.footer',
-  triggerHook: 'onEnter'
+  triggerHook: 'onEnter',
 })
 footerBodyScene.setClassToggle('body', 'scrolled-footer-open')
 
@@ -78,7 +78,7 @@ if (document.body.classList.contains('has-floating-message')) {
   let floatWrappers = document.querySelectorAll('.float-wrapper')
   floatWrappers = Array.prototype.slice.call(floatWrappers)
 
-  floatWrappers.forEach(wrapper => {
+  floatWrappers.forEach((wrapper) => {
     let floatingMessage
     let triggerFrom
     let triggerTo
@@ -87,24 +87,26 @@ if (document.body.classList.contains('has-floating-message')) {
     triggerFrom = wrapper.querySelector('.float-trigger[data-trigger-from]')
     triggerTo = wrapper.querySelector('.float-trigger[data-trigger-to]')
 
-    let tween = TweenMax.fromTo(floatingMessage, 1,
+    let tween = TweenMax.fromTo(
+      floatingMessage,
+      1,
       { marginTop: '-50px' },
       { marginTop: '50px', ease: Circ.easeOut } // eslint-disable-line
     )
 
     let floatingScene1 = new ScrollMagic.Scene({
       triggerElement: triggerFrom,
-      duration: getUnpinPos(triggerFrom, triggerTo, floatingMessage)
+      duration: getUnpinPos(triggerFrom, triggerTo, floatingMessage),
     })
     floatingScene1.setPin(floatingMessage)
-    floatingScene1.on('progress', function (event) {
+    floatingScene1.on('progress', function(event) {
       onProgress(event, triggerFrom, triggerTo, floatingMessage)
     })
     floatingScene1.setTween(tween)
 
     let floatingScene2 = new ScrollMagic.Scene({
       duration: 0,
-      triggerElement: triggerFrom
+      triggerElement: triggerFrom,
     })
 
     floatingScene2.setClassToggle(floatingMessage, 'is-active') // add class toggle
@@ -114,12 +116,15 @@ if (document.body.classList.contains('has-floating-message')) {
   })
 }
 
-function getUnpinPos (from, to, self) {
-  let pos = Math.floor(DocumentOffset(to).top) - Math.floor(DocumentOffset(from).top) - Math.floor(self.offsetHeight)
+function getUnpinPos(from, to, self) {
+  let pos =
+    Math.floor(DocumentOffset(to).top) -
+    Math.floor(DocumentOffset(from).top) -
+    Math.floor(self.offsetHeight)
   return pos
 }
 
-function onProgress (event, from, to, message) {
+function onProgress(event, from, to, message) {
   event.currentTarget.duration(getUnpinPos(from, to, message))
 }
 
@@ -130,10 +135,20 @@ function onProgress (event, from, to, message) {
 if (document.querySelector('.button-scroll-down')) {
   let leesMeer = document.querySelector('.button-scroll-down')
 
-  leesMeer.addEventListener('click', event => {
+  leesMeer.addEventListener('click', (event) => {
     let afterSplash = document.querySelector('.after-splash')
     let top = DocumentOffset(afterSplash).top
-    TweenMax.to(window, 1, { scrollTo: top, ease: Cubic.easeInOut })     // eslint-disable-line
+    TweenMax.to(window, 1, { scrollTo: top, ease: Cubic.easeInOut }) // eslint-disable-line
+  })
+}
+
+if (document.querySelector('.button-scroll-down-to-video')) {
+  let scrollToVideo = document.querySelector('.button-scroll-down-to-video')
+
+  scrollToVideo.addEventListener('click', (event) => {
+    let promoVideo = document.querySelector('.promo-video')
+    let top = DocumentOffset(promoVideo).top
+    TweenMax.to(window, 1, { scrollTo: top, ease: Cubic.easeInOut }) // eslint-disable-line
   })
 }
 
@@ -148,9 +163,9 @@ if (Object.keys(urlVariables).length) {
   }
 }
 
-function getUrlVariables () {
+function getUrlVariables() {
   var variables = {}
-  var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+  var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
     variables[key] = value
   })
   return variables
@@ -166,7 +181,7 @@ appearElements = Array.prototype.slice.call(appearElements)
 
 if (appearElements.length > 0) {
   // create containers
-  appearElements.forEach(element => {
+  appearElements.forEach((element) => {
     let parent = element.parentElement
 
     let clone = element.cloneNode(true)
@@ -200,11 +215,11 @@ if (appearElements.length > 0) {
   animators = Array.prototype.slice.call(animators)
   // attach scroll effects
 
-  animators.forEach(element => {
+  animators.forEach((element) => {
     let appearScene = new ScrollMagic.Scene({
       duration: 0,
       triggerElement: element,
-      offset: getOffset()
+      offset: getOffset(),
       // reverse: false
     })
 
@@ -214,7 +229,7 @@ if (appearElements.length > 0) {
   })
 }
 
-function getOffset () {
+function getOffset() {
   return window.innerHeight / -4
 }
 
@@ -231,11 +246,11 @@ if (header) {
   sections.unshift(header)
 }
 
-sections.forEach(section => {
+sections.forEach((section) => {
   let backgroundScene = new ScrollMagic.Scene({
     duration: section.clientHeight,
     triggerElement: section,
-    triggerHook: 'onLeave'
+    triggerHook: 'onLeave',
   })
 
   let backgroundClass = section.dataset.backgroundColor
